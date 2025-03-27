@@ -1,0 +1,360 @@
+<!-- BEGIN FAQ Two-Column Section -->
+<style>
+  .faq-two-col-section {
+    width: 100%;
+    background-color: #fde8e4; /* Light peach/pink background */
+    padding: 60px 20px;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .faq-two-col-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+  }
+
+  /* LEFT COLUMN */
+  .faq-left-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ff5b7f; /* Pink text color */
+  }
+  /* Heading with two lines: "Frequently Asked" + "Questions" in italic */
+  .faq-heading {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: #ff5b7f;
+  }
+  .faq-heading .italic-word {
+    font-style: italic;
+  }
+  .faq-subheading {
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-style: normal;
+    color: #333; /* Darker for contrast */
+  }
+
+  /* Category-like labels (e.g. Product, Shipping, Other) */
+  .faq-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .faq-category-label {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #ff5b7f;
+    color: #ff5b7f;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    width: fit-content;
+    background: #fff;
+  }
+
+  /* CTA Button */
+  .faq-button-container {
+    margin-bottom: 20px;
+  }
+  .faq-button {
+    display: inline-block;
+    background-color: #ff5b7f;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+  .faq-button:hover {
+    opacity: 0.8;
+  }
+
+  /* "Got a Question?" Link */
+  .faq-ask {
+    font-size: 14px;
+    color: #333;
+  }
+  .faq-ask a {
+    color: #ff5b7f;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  /* RIGHT COLUMN */
+  .faq-right-col {
+    flex: 2;
+  }
+
+  /* FAQ Items Container */
+  .faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Individual FAQ Accordion Item */
+  .faq-item {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  /* FAQ Question Button */
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    background: #fffafc; /* Slightly tinted background */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Plus/Minus Icon */
+  .faq-icon {
+    font-size: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    color: #ff5b7f;
+  }
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  /* FAQ Answer (collapsible) */
+  .faq-answer {
+    background: #fff;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: #666;
+    font-size: 14px;
+  }
+  .faq-answer p {
+    padding: 15px 0;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .faq-two-col-container {
+      flex-direction: column;
+    }
+    .faq-heading {
+      font-size: 36px;
+    }
+    .faq-subheading {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<div class="faq-two-col-section" id="faq-two-col-{{ section.id }}">
+  <div class="faq-two-col-container">
+    
+    <!-- LEFT COLUMN: Heading, Subheading, Category Labels, Button, Ask Link -->
+    <div class="faq-left-col">
+      <!-- Main Heading (with italic word) -->
+      <h2 class="faq-heading">
+        {{ section.settings.heading | escape }}
+        {% if section.settings.heading_italic != blank %}
+          <span class="italic-word">{{ section.settings.heading_italic }}</span>
+        {% endif %}
+      </h2>
+
+      <!-- Subheading -->
+      {% if section.settings.subheading != blank %}
+        <p class="faq-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      <!-- Category Labels -->
+      <div class="faq-categories">
+        {% if section.settings.category1 != blank %}
+          <span class="faq-category-label">{{ section.settings.category1 }}</span>
+        {% endif %}
+        {% if section.settings.category2 != blank %}
+          <span class="faq-category-label">{{ section.settings.category2 }}</span>
+        {% endif %}
+        {% if section.settings.category3 != blank %}
+          <span class="faq-category-label">{{ section.settings.category3 }}</span>
+        {% endif %}
+      </div>
+
+      <!-- CTA Button -->
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <div class="faq-button-container">
+          <a href="{{ section.settings.button_link }}" class="faq-button">{{ section.settings.button_text }}</a>
+        </div>
+      {% endif %}
+
+      <!-- "Got a Question?" Link -->
+      {% if section.settings.ask_text and section.settings.ask_link and section.settings.ask_link_text %}
+        <p class="faq-ask">
+          {{ section.settings.ask_text }}
+          <a href="{{ section.settings.ask_link }}">{{ section.settings.ask_link_text }}</a>
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- RIGHT COLUMN: FAQ Items (Accordion) -->
+    <div class="faq-right-col">
+      <div class="faq-items">
+        {% for block in section.blocks %}
+          <div class="faq-item">
+            <button class="faq-question">
+              {{ block.settings.question }}
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Accordion Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqSection = document.getElementById('faq-two-col-{{ section.id }}');
+    const faqItems = faqSection.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      // Start collapsed
+      answer.style.maxHeight = 0;
+
+      questionBtn.addEventListener('click', () => {
+        item.classList.toggle('open');
+        if (item.classList.contains('open')) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = 0;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Two-Column",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading (e.g. 'Frequently Asked')",
+      "default": "Frequently Asked"
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Italic Heading Word (e.g. 'Questions')",
+      "default": "Questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Have questions? We're here to help."
+    },
+    {
+      "type": "text",
+      "id": "category1",
+      "label": "Category 1 Label",
+      "default": "Product"
+    },
+    {
+      "type": "text",
+      "id": "category2",
+      "label": "Category 2 Label",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "category3",
+      "label": "Category 3 Label",
+      "default": "Other"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "ask_text",
+      "label": "'Got A Question?' text",
+      "default": "Got A Question?"
+    },
+    {
+      "type": "url",
+      "id": "ask_link",
+      "label": "Ask Link"
+    },
+    {
+      "type": "text",
+      "id": "ask_link_text",
+      "label": "Ask Link Text",
+      "default": "Ask Now"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What's the happiness guarantee?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We guarantee your happiness by...</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Two-Column",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}
+<!-- END FAQ Two-Column Section -->

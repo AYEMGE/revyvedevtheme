@@ -1,0 +1,306 @@
+<style>
+.logo-section {
+  padding: 3rem 1rem;
+  background-color: {{ section.settings.background_color }};
+  width: 100%;
+}
+
+.logo-section__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem 0.7rem;
+}
+
+.logo-section__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 20%;
+  min-width: 0;
+}
+
+.logo-section__logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.logo-section__citation {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #333;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Mobile Slideshow */
+@media screen and (max-width: 767px) {
+  .logo-section {
+    padding: 2rem 1rem;
+  }
+  
+  .logo-section__container {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+  }
+  
+  .logo-section__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .logo-section__item.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .logo-section__logo {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .logo-section__citation {
+    font-size: 1rem;
+    max-width: 300px;
+  }
+  
+  .logo-section__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+  }
+  
+  .logo-section__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logo-section__dot.active {
+    background-color: #333;
+  }
+}
+
+/* Tablet adjustments to prevent wrapping */
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .logo-section__container {
+    gap: 0.3rem;
+  }
+  
+  .logo-section__logo {
+    max-width: 220px;
+  }
+}
+</style>
+
+<div class="logo-section" id="logo-section-{{ section.id }}">
+  <div class="logo-section__container">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'logo' %}
+          <div class="logo-section__item {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+            {% if block.settings.logo != blank %}
+              <img 
+                src="{{ block.settings.logo | image_url: width: 300 }}" 
+                alt="{{ block.settings.citation | escape }}" 
+                loading="lazy"
+                class="logo-section__logo"
+                width="300"
+                height="120"
+              >
+            {% endif %}
+            {% if block.settings.citation != blank %}
+              <p class="logo-section__citation">{{ block.settings.citation }}</p>
+            {% endif %}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+  
+  <!-- Mobile Dots -->
+  <div class="logo-section__dots">
+    {% for block in section.blocks %}
+      {% if block.type == 'logo' %}
+        <div class="logo-section__dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const logoSection = document.querySelector('#logo-section-{{ section.id }}');
+    if (!logoSection) return;
+    
+    const items = logoSection.querySelectorAll('.logo-section__item');
+    const dots = logoSection.querySelectorAll('.logo-section__dot');
+    let currentIndex = 0;
+    let interval;
+    
+    // Only run slideshow on mobile
+    const isMobile = () => window.innerWidth <= 767;
+    
+    // Set up slideshow
+    function setupSlideshow() {
+      if (isMobile()) {
+        startSlideshow();
+      } else {
+        stopSlideshow();
+        // Reset all items to be visible for desktop
+        items.forEach(item => {
+          item.classList.remove('active');
+          item.style.opacity = '1';
+          item.style.position = 'relative';
+        });
+      }
+    }
+    
+    // Show a specific slide
+    function showSlide(index) {
+      // Hide all slides
+      items.forEach(item => item.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      // Show the selected slide
+      items[index].classList.add('active');
+      dots[index].classList.add('active');
+      
+      currentIndex = index;
+    }
+    
+    // Start the slideshow
+    function startSlideshow() {
+      if (interval) clearInterval(interval);
+      
+      // Reset item styles for mobile
+      items.forEach(item => {
+        item.style.opacity = '';
+        item.style.position = '';
+      });
+      
+      showSlide(currentIndex);
+      
+      interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
+      }, {{ section.settings.slide_interval | default: 3000 }});
+    }
+    
+    // Stop the slideshow
+    function stopSlideshow() {
+      if (interval) clearInterval(interval);
+    }
+    
+    // Set up click events for dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        if (isMobile()) {
+          stopSlideshow();
+          showSlide(index);
+          startSlideshow();
+        }
+      });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', setupSlideshow);
+    
+    // Initial setup
+    setupSlideshow();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Logo Section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Showcase Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "slide_interval",
+      "min": 2000,
+      "max": 8000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Slide Transition Time",
+      "default": 3000,
+      "info": "Time between slide changes in milliseconds (mobile only)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image",
+          "info": "Use a black logo that's at least 300px wide for best results"
+        },
+        {
+          "type": "text",
+          "id": "citation",
+          "label": "Citation Text",
+          "default": "Citation Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Section",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

@@ -1,0 +1,511 @@
+.split-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  background-color: var(--background-color, #FFFFFF);
+  color: var(--text-color, #000000);
+  padding: 0;
+  overflow: hidden;
+  height: var(--section-height, calc(100vh - 80px));
+  max-height: var(--section-height, calc(100vh - 80px));
+  font-family: 'Satoshi', sans-serif;
+}
+
+.split-hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.split-hero__container {
+  display: flex;
+  align-items: stretch;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Left side - Media */
+.split-hero__media {
+  flex: 0 0 50%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: #f5f5f5;
+  max-width: 50%;
+  height: var(--section-height, calc(100vh - 80px));
+}
+
+.split-hero__image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.split-hero__image img,
+.split-hero__image .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.split-hero__video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split-hero__video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right side - Content */
+.split-hero__content {
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--background-color, #FFFFFF);
+  box-sizing: border-box;
+  height: var(--section-height, calc(100vh - 80px));
+  overflow-y: auto; /* Allow scrolling if content is too tall */
+}
+
+/* Rating stars */
+.split-hero__rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  position: relative;
+  flex-direction: row; /* Force horizontal layout */
+  justify-content: flex-start; /* Left alignment for desktop */
+  font-family: 'Satoshi', sans-serif;
+}
+
+.rating-stars {
+  display: flex;
+  color: #00b67a;
+  margin-right: 8px;
+  flex-shrink: 0; /* Prevent stars from shrinking */
+}
+
+.star {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.rating-text-container {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.rating-text {
+  font-size: 14px;
+  display: inline !important;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  font-family: 'Satoshi', sans-serif;
+}
+
+/* Heading */
+.split-hero__heading {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900; /* Black weight */
+  color: var(--text-color, #000000);
+}
+
+/* Mobile heading - allows for consistent line breaks */
+.split-hero__heading .heading-first-line,
+.split-hero__heading .heading-second-line {
+  display: block;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900; /* Black weight */
+}
+
+.split-hero__heading .heading-second-line {
+  margin-top: 0; /* Ensure no extra space between lines */
+}
+
+/* Text content */
+.split-hero__text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 90%;
+  color: var(--text-color, #000000);
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+}
+
+.split-hero__text p {
+  margin-top: 0;
+  margin-bottom: 0; /* Ensure paragraph has no bottom margin */
+}
+
+/* Buttons */
+.split-hero__buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  margin-top: 0;
+  flex-wrap: wrap;
+}
+
+.split-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.primary-button {
+  background-color: var(--primary-button-bg, #0E4B43);
+  color: var(--primary-button-text, #FFFFFF);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-button-bg, #0E4B43);
+  color: var(--primary-button-text, #FFFFFF);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.primary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.primary-button:hover::before {
+  transform: translateX(0);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: var(--text-color, #000000);
+  border: 2px solid #e2e2e2;
+}
+
+.secondary-button:hover {
+  background-color: #f7f7f7;
+  border-color: #d0d0d0;
+}
+
+.button-arrow {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+/* Guarantee text */
+.split-hero__guarantee {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-color, #333);
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+}
+
+.checkmark {
+  fill: #00b67a;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* Animation classes */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 0.2s;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 0.2s;
+}
+
+.visible .fade-in-left,
+.visible .fade-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile image options */
+.split-hero__mobile-image {
+  display: none; /* Hidden by default on desktop */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.split-hero__mobile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.split-hero__mobile-image.portrait img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.split-hero__mobile-image.landscape img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .split-hero {
+    height: auto;
+    max-height: none;
+  }
+  
+  .split-hero__container {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  
+  .split-hero__media {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    min-height: unset;
+    height: auto;
+    order: 2; /* Display media after content */
+  }
+  
+  /* Show mobile image if available */
+  .split-hero__media.has-mobile-image .split-hero__image {
+    display: none;
+  }
+  
+  .split-hero__media.has-mobile-image .split-hero__mobile-image {
+    display: block;
+  }
+  
+  .split-hero__content {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 60px 40px;
+    height: auto;
+    order: 1; /* Display content before media */
+  }
+  
+  .split-hero__heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .split-hero__media {
+    aspect-ratio: var(--mobile-aspect-ratio, 1/1);
+  }
+  
+  .split-hero__media.portrait-mode {
+    aspect-ratio: 3/4; /* Portrait mode */
+  }
+  
+  .split-hero__media.landscape-mode {
+    aspect-ratio: 16/9; /* Landscape mode */
+  }
+  
+  .split-hero__content {
+    padding: 25px 20px; /* Reduced padding from 40px to 25px top/bottom */
+    text-align: center; /* Center all content */
+  }
+  
+  .split-hero__heading {
+    font-size: 32px;
+    text-align: center; /* Center heading */
+    margin-bottom: 16px; /* Reduced from 24px */
+    line-height: 1.1; /* Tighter line height for mobile */
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900; /* Black weight */
+  }
+  
+  .split-hero__heading .heading-first-line,
+  .split-hero__heading .heading-second-line {
+    display: block;
+    line-height: 1.1;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900; /* Black weight */
+  }
+  
+  .split-hero__text {
+    font-size: 16px;
+    max-width: 100%;
+    margin-bottom: 0; /* Completely remove bottom spacing */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .split-hero__text p {
+    margin: 0; /* Remove all margins in paragraphs on mobile */
+  }
+  
+  .star {
+    font-size: 20px;
+  }
+  
+  .split-hero__rating {
+    margin-top: 16px; /* Adjust top margin */
+    margin-bottom: 20px;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* Force horizontal layout on mobile */
+    align-items: center;
+  }
+  
+  .rating-stars {
+    margin-right: 8px;
+    display: flex !important;
+  }
+  
+  .rating-text-container {
+    display: inline-block;
+    text-align: left; /* Align text to the left since it's next to stars */
+  }
+  
+  .rating-text {
+    font-size: 14px; /* Reduced from 16px */
+    display: inline !important;
+    font-weight: 400; /* Reduced from 600 to normal weight */
+    white-space: nowrap;
+  }
+  
+  .split-hero__buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px; /* Reduced from 24px */
+    gap: 10px; /* Reduced gap between buttons */
+  }
+  
+  .split-hero__button {
+    width: 100%;
+    padding: 12px 24px; /* Smaller padding for buttons */
+  }
+  
+  /* Reduce spacing in guarantee text */
+  .split-hero__guarantee {
+    margin-top: 10px;
+    font-size: 13px;
+    justify-content: center; /* Center guarantee text */
+  }
+}
+
+.split-hero__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  position: relative;
+}
+
+.split-hero__placeholder svg {
+  max-width: 300px;
+  max-height: 300px;
+  opacity: 0.7;
+}
+
+.split-hero__placeholder-text {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.split-hero__editor-info {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dashed #ccc;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-size: 14px;
+  color: #555;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.split-hero__editor-info p {
+  margin: 0;
+}
+
+/* Fix for empty blocks */
+.split-hero .section-empty-state {
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px dashed #ccc;
+  margin: 20px 0;
+} 

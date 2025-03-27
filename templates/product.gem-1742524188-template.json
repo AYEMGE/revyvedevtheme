@@ -1,0 +1,565 @@
+{
+  "order": [
+    "1663667027ccd68a19",
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "custom_bar_wbWbwx",
+    "centered_accordion_cAHMk3",
+    "1662552569cce2536d",
+    "how_to_section_K6GC6k",
+    "black_box_section_xFBQ8J",
+    "166237435211863a49",
+    "1663667029efc274af",
+    "product-recommendations",
+    "email_signup_b7tJkK",
+    "16623873609e87da8b",
+    "1741729345edc6644b",
+    "rounded_image_box_section_Pry7fV"
+  ],
+  "sections": {
+    "1663667027ccd68a19": {
+      "type": "scrolling-text",
+      "blocks": {
+        "9f8d76e3-abba-44dd-82bb-b2fbba77db59": {
+          "type": "text",
+          "settings": {
+            "text": "Subsribe and Save 30% ALL Orders",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "9f8d76e3-abba-44dd-82bb-b2fbba77db59"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "10s",
+        "text_size": 26,
+        "text_uppercase": false,
+        "image_size": "large",
+        "color_bg": "#1b1c26",
+        "color_text": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "uppercase": true,
+            "show_products_rating": true,
+            "show_custom_badges": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "science_excerpt_kMpD6j": {
+          "type": "science_excerpt",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_1_1_e7929405-8397-446a-9bc1-ebc4f9e821d1.svg",
+            "heading": "Backed By Science",
+            "content": "Introducing REVYVE Night Out Recovery Mix. Scientifically formulated with DHM and key nutrients to support liver function, aid alcohol metabolism, and ensure you wake up ready to go. Mixed with water and taken before, during, or shortly after consuming alcohol."
+          }
+        },
+        "tabs_JkTaUM": {
+          "type": "tabs",
+          "settings": {
+            "show_description": true,
+            "show_ingredients": true,
+            "show_shipping": false,
+            "ingredients_content": "<p>- Dihydromyricetin (DHM)<br\/>- Milk Thistle<br\/>- Ginger Extract<br\/>- N-Acetyl-Cysteine<br\/>- Sodium Chloride (Electrolyte)<br\/>- Magnesium Glycinate (Electrolyte)<br\/>- Potassium Chloride (Electrolyte)<br\/>- Vitamin B Complex<br\/>- Vitamin C<\/p>",
+            "shipping_content": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "outline_button": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "variant_picker",
+        "science_excerpt_kMpD6j",
+        "tabs_JkTaUM",
+        "buy_buttons"
+      ],
+      "settings": {
+        "full_width": true,
+        "enable_sticky_info": true,
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": true,
+        "media_layout": "list",
+        "display_slider_pagination": true,
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "science_excerpt": "Our formula is backed by scientific research and carefully selected ingredients.",
+        "ingredients_content": "",
+        "shipping_content": ""
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 45,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "custom_bar_wbWbwx": {
+      "type": "custom-bar",
+      "blocks": {
+        "icon_text_RLxcG3": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Handshake_Greeting_Sticker_by_AlphaSights.gif",
+            "icon_label": "Non GMO"
+          }
+        },
+        "icon_text_yApCgq": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Time_Watch_Sticker_by_AlphaSights.gif",
+            "icon_label": "Works While You Sleep"
+          }
+        },
+        "icon_text_PxLUqJ": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Plant_Grow_Sticker_by_AlphaSights_f75ec1ad-3b68-4d0d-a465-b7c8a52701d4.gif",
+            "icon_label": "Made in the U.S.A"
+          }
+        },
+        "icon_text_PUpkgw": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Thinking_Brain_Sticker_by_AlphaSights.gif",
+            "icon_label": "Increases Metabolism"
+          }
+        },
+        "icon_text_tNK779": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Cross_No_Sticker_by_AlphaSights.gif",
+            "icon_label": "Zero Sugar"
+          }
+        },
+        "icon_text_jgGcJV": {
+          "type": "icon_text",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Party_Celebrate_Sticker_by_AlphaSights_17611dcb-1748-45a6-8db6-d3c8c527ba28.gif",
+            "icon_label": "Take Before Drinking"
+          }
+        }
+      },
+      "block_order": [
+        "icon_text_RLxcG3",
+        "icon_text_yApCgq",
+        "icon_text_PxLUqJ",
+        "icon_text_PUpkgw",
+        "icon_text_tNK779",
+        "icon_text_jgGcJV"
+      ],
+      "settings": {
+        "heading": "Clean, Effective, Proven.",
+        "background_color": "#000000",
+        "text_color": "#ffffff"
+      }
+    },
+    "centered_accordion_cAHMk3": {
+      "type": "centered-accordion",
+      "blocks": {
+        "accordion_block_pYr7Dp": {
+          "type": "accordion_block",
+          "settings": {
+            "title": "Liver Detox",
+            "dropdown_1_label": "Dihydromyricetin - DHM (1000 mg)",
+            "dropdown_1_content": "Supports your liver by accelerating alcohol metabolism and reducing toxic byproducts like acetaldehyde, the main cause of hangovers. It is an all-natural Japanese herb that detoxifies your system strikingly fast.",
+            "dropdown_2_label": "Milk Thistle (50 mg)",
+            "dropdown_2_content": "Contains silymarin, a powerful antioxidant that protects liver cells, supports detoxification, and helps flush out toxins like acetaldehyde, the main culprit behind hangovers. It boosts liver function, so you recover faster and feel better in the morning.",
+            "dropdown_3_label": "",
+            "dropdown_3_content": "",
+            "dropdown_4_label": "",
+            "dropdown_4_content": "",
+            "dropdown_5_label": "",
+            "dropdown_5_content": ""
+          }
+        },
+        "accordion_block_VCjQMK": {
+          "type": "accordion_block",
+          "settings": {
+            "title": "Immunity",
+            "dropdown_1_label": "Vitamin C (75 mg)",
+            "dropdown_1_content": "Helps strengthen your immune system and helps combat oxidative stress caused by alcohol, reducing inflammation and supporting faster recovery. It also aids in flushing out toxins, keeping you feeling refreshed instead of rundown after a night out.",
+            "dropdown_2_label": "",
+            "dropdown_2_content": "Your content here...",
+            "dropdown_3_label": "",
+            "dropdown_3_content": "",
+            "dropdown_4_label": "",
+            "dropdown_4_content": "",
+            "dropdown_5_label": "",
+            "dropdown_5_content": ""
+          }
+        },
+        "accordion_block_xXYMzL": {
+          "type": "accordion_block",
+          "settings": {
+            "title": "Hangxiety",
+            "dropdown_1_label": "Vitamin B12 (6 mcg)",
+            "dropdown_1_content": "Supports your nervous system and helps regulate mood by reducing alcohol-induced fatigue and brain fog, easing the effects of \"hangxiety.\" It boosts energy and neurotransmitter function, helping you feel more balanced and clear-headed after a night out.",
+            "dropdown_2_label": "Ginger (50 mg)",
+            "dropdown_2_content": "Helps combat \"hangxiety\" by calming the nervous system, reducing nausea, and balancing blood sugar levels, which can fluctuate after drinking. Its natural anti-inflammatory properties also support digestion and overall recovery, helping you feel more stable and at ease.",
+            "dropdown_3_label": "",
+            "dropdown_3_content": "",
+            "dropdown_4_label": "",
+            "dropdown_4_content": "",
+            "dropdown_5_label": "",
+            "dropdown_5_content": ""
+          }
+        },
+        "accordion_block_R8GEYP": {
+          "type": "accordion_block",
+          "settings": {
+            "title": "Hydration",
+            "dropdown_1_label": "Magnesium (60 mg)",
+            "dropdown_1_content": "Restores electrolytes lost from alcohol consumption, helping to balance your hydration while reducing headaches and fatigue. It also supports nervous system function, promoting relaxation and reducing the stress effects of a hangover.",
+            "dropdown_2_label": "Potassium (200 mg)",
+            "dropdown_2_content": "Restores electrolytes preventing dehydration and muscle cramps caused by alcohol consumption. It helps maintain proper fluid balance and nerve function.",
+            "dropdown_3_label": "Sodium (500 mg)",
+            "dropdown_3_content": "Helps restore electrolyte balance by retaining essential fluids, preventing dehydration, and reducing hangover symptoms like headaches and dizziness. It supports optimal hydration, keeping you feeling refreshed and recovered after a night out.",
+            "dropdown_4_label": "",
+            "dropdown_4_content": "",
+            "dropdown_5_label": "",
+            "dropdown_5_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "accordion_block_pYr7Dp",
+        "accordion_block_VCjQMK",
+        "accordion_block_xXYMzL",
+        "accordion_block_R8GEYP"
+      ],
+      "settings": {
+        "center_image": "shopify:\/\/shop_images\/Untitled-122.png",
+        "center_video": ""
+      }
+    },
+    "1662552569cce2536d": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 5,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "how_to_section_K6GC6k": {
+      "type": "how-to-section",
+      "blocks": {
+        "text_block_bRVUeR": {
+          "type": "text_block",
+          "settings": {
+            "title": "When To Use REVYVE",
+            "body_text": "For the best results, take REVYVE the night of drinking. Either prior to, during, or shortly after consuming alcohol. You can also mix it in while drinking or before bed to support recovery. REVYVE works overtime while you sleep allowing you to feel 100% every morning."
+          }
+        }
+      },
+      "block_order": [
+        "text_block_bRVUeR"
+      ],
+      "settings": {
+        "left_image": "shopify:\/\/shop_images\/image_fx__10.png"
+      }
+    },
+    "black_box_section_xFBQ8J": {
+      "type": "black-box-section",
+      "blocks": {
+        "benefit_G3UpCE": {
+          "type": "benefit",
+          "settings": {
+            "title": "All-in-One Formula",
+            "description": "Hangover Prevention & Electrolyte Balance"
+          }
+        },
+        "benefit_HFhqeF": {
+          "type": "benefit",
+          "settings": {
+            "title": "Targets the Source",
+            "description": "Liver Detox"
+          }
+        },
+        "benefit_tyziYE": {
+          "type": "benefit",
+          "settings": {
+            "title": "When?",
+            "description": "Take Before, During, or Shortly After Consuming Alcohol"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_G3UpCE",
+        "benefit_HFhqeF",
+        "benefit_tyziYE"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "The Support Your Body Deserves",
+        "section_image": "shopify:\/\/shop_images\/Ye.png"
+      }
+    },
+    "166237435211863a49": {
+      "type": "background-video",
+      "settings": {
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-450",
+        "full_width": true,
+        "subheading": "Backed by science <p>BUILT FOR YOUR LIFESTYLE<\/p>",
+        "heading": "",
+        "text": "",
+        "lightbox_button": false,
+        "video": "",
+        "video_hosted": "shopify:\/\/files\/videos\/videoplayback (3).mp4",
+        "overlay_opacity": 20,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1663667029efc274af": {
+      "type": "collapsible-content",
+      "blocks": {
+        "1663667029f86d6497-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Dihydromyricetin (DHM)",
+            "open": false,
+            "content": "<p>Herb that counteracts acute alcohol intoxication and reduces alcohol withdrawal symptoms, preventing adverse effects of alcohol on your liver.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "1663667029f86d6497-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Milk Thistle",
+            "open": false,
+            "content": "<p>Natural antioxidant & anti-inflammatory, providing additional protection against oxidative stress. Promotes healthy liver function, further enhancing the benefits of DHM.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "1663667029f86d6497-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ginger Extract",
+            "open": false,
+            "content": "<p>Root extract that helps ease nausea and soothes digestion to alleviate stomach discomfort.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "1663667029f86d6497-3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "N-Acetyl-Cysteine",
+            "open": false,
+            "content": "<p>Powerful antioxidant that works synergistically with DHM to neutralize toxic Acetaldehyde levels. Protects the body against oxidative stress, reducing inflammation and increasing metabolism to promote overall health.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "68288bd2-3db2-455d-a841-5aa19d752abb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Electrolytes",
+            "open": false,
+            "content": "<p><strong>Sodium Chloride:<\/strong><br\/>Restores the body's fluid balance and alleviates dehydration.<br\/><strong>Magnesium Glycinate:<br\/><\/strong>Crucial for muscle health, energy production, blood pressure regulation, immune systems, headache relief, and improves sleep.<br\/><strong>Potassium Chloride:<br\/><\/strong>Supports nerve and muscle function while preventing cramping.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "de9966d6-0cd0-4b0f-9810-aa062aff88ce": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Vitamins",
+            "open": false,
+            "content": "<p><strong>Vitamin B Complex: <br\/><\/strong>Fights nausea, fatigue, and anxiety. Aids the body in producing and storing energy. Promotes nervous system and blood cell health.<br\/><strong>Vitamin C: <br\/><\/strong>Antioxidant that boosts the immune system and reduces oxidative stress.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "1663667029f86d6497-0",
+        "1663667029f86d6497-1",
+        "1663667029f86d6497-2",
+        "1663667029f86d6497-3",
+        "68288bd2-3db2-455d-a841-5aa19d752abb",
+        "de9966d6-0cd0-4b0f-9810-aa062aff88ce"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Learn What's Inside!",
+        "description": "<p><strong>Ingredient Breakdown<\/strong><\/p>",
+        "uppercase_heading": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "YOU MAY ALSO LIKE",
+        "heading_left": true,
+        "description": "<p>Combine your style with these products<\/p>",
+        "full_width": true,
+        "mobile_swipe": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "email_signup_b7tJkK": {
+      "type": "email-signup",
+      "disabled": true,
+      "settings": {
+        "heading": "GET 15% OFF YOUR FIRST ORDER",
+        "description": "<p>Sign up for our newsletter and unlock exclusive deals, stay updated on groundbreaking solutions, and enjoy 15% off your first order! Don't miss out on transforming your recovery game—your mornings will thank you.<\/p>",
+        "color_bg": "#ffffff",
+        "color_text": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "16623873609e87da8b": {
+      "type": "multicolumn",
+      "blocks": {
+        "1662387360fb14d4f3-0": {
+          "type": "column",
+          "settings": {
+            "image_full_width": true,
+            "retina": true,
+            "title": "• Take Before, During, or Right After Drinking",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1662387360fb14d4f3-1": {
+          "type": "column",
+          "settings": {
+            "image_full_width": true,
+            "retina": true,
+            "title": "• Free Shipping on Orders Over $50+",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1662387360fb14d4f3-2": {
+          "type": "column",
+          "settings": {
+            "image_full_width": true,
+            "retina": true,
+            "title": "• Eases Nausea, Hangxiety & Fatigue",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "c4878d73-465c-4c2e-9938-ad532ceb3d8d": {
+          "type": "column",
+          "settings": {
+            "image_full_width": true,
+            "retina": true,
+            "title": "• Sugar Free, Non-GMO, GF, Made in USA",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1662387360fb14d4f3-0",
+        "1662387360fb14d4f3-1",
+        "1662387360fb14d4f3-2",
+        "c4878d73-465c-4c2e-9938-ad532ceb3d8d"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "MORNING RECOVERY STARTS THE NIGHT BEFORE",
+        "heading_left": true,
+        "description": "",
+        "full_width": true,
+        "display_type": "grid",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "text_alignment": "left",
+        "heading_size": "h3",
+        "mobile_swipe": false,
+        "show_progress_bar": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1741729345edc6644b": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_wwjPx7": {
+          "type": "shopify:\/\/apps\/junip\/blocks\/junip-product-review\/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{ product }}"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_wwjPx7"
+      ],
+      "settings": {}
+    },
+    "rounded_image_box_section_Pry7fV": {
+      "type": "rounded-image-box-section",
+      "settings": {
+        "section_image": "shopify:\/\/shop_images\/8748ea01-2cbd-4418-9b03-33fc0fb4acb1.jpg",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_transparent": true
+      }
+    }
+  }
+}

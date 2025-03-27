@@ -1,0 +1,415 @@
+{{ 'split-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-split-hero-{{ section.id }} {
+    --background-color: {{ section.settings.background_color }};
+    --text-color: {{ section.settings.text_color }};
+    --primary-button-bg: {{ section.settings.primary_button_bg }};
+    --primary-button-text: {{ section.settings.primary_button_text }};
+    {% if section.settings.custom_height != blank %}
+      --section-height: {{ section.settings.custom_height }}px;
+    {% else %}
+      --section-height: calc(100vh - 80px);
+    {% endif %}
+  }
+{%- endstyle -%}
+
+<div class="split-hero section-split-hero-{{ section.id }} scroll-trigger">
+  <div class="split-hero__container">
+    <!-- Left side: Media (Image or Video) -->
+    <div class="split-hero__media fade-in-left {% if section.settings.mobile_image != blank %}has-mobile-image{% endif %} {% if section.settings.mobile_image_orientation == 'portrait' %}portrait-mode{% elsif section.settings.mobile_image_orientation == 'landscape' %}landscape-mode{% endif %}">
+      {%- if section.settings.video_url != blank -%}
+        <div class="split-hero__video-container">
+          {%- if section.settings.video_url.type == 'youtube' -%}
+            <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=1&mute=1&loop=1&playlist={{ section.settings.video_url.id }}&controls=0&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {%- elsif section.settings.video_url.type == 'vimeo' -%}
+            <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      
+      <div class="split-hero__image">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 1500, height: 1500, crop: 'center' }}" 
+               alt="{{ section.settings.heading | escape }}" 
+               width="1500" 
+               height="1500" 
+               loading="lazy"
+               style="width: 100%; height: 100%; object-fit: cover;">
+        {%- else -%}
+          <div class="split-hero__placeholder">
+            <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="800" height="800" fill="#E5E5E5"/>
+              <rect x="150" y="250" width="500" height="300" rx="8" fill="#D1D1D1"/>
+              <path d="M400 350 L450 425 L500 350" stroke="#999" stroke-width="8" fill="none"/>
+              <circle cx="350" cy="350" r="50" stroke="#999" stroke-width="8" fill="none"/>
+            </svg>
+            <div class="split-hero__placeholder-text">
+              <p>Add a square image or video for this side of the hero section</p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+      
+      <!-- Mobile image -->
+      {%- if section.settings.mobile_image != blank -%}
+        <div class="split-hero__mobile-image {% if section.settings.mobile_image_orientation == 'portrait' %}portrait{% else %}landscape{% endif %}">
+          <img src="{{ section.settings.mobile_image | image_url: width: 1500, height: 1500 }}" 
+               alt="{{ section.settings.heading | escape }}" 
+               width="1500" 
+               height="1500" 
+               loading="lazy">
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Right side: Content -->
+    <div class="split-hero__content fade-in-right">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'rating' %}
+              <div class="split-hero__rating" {{ block.shopify_attributes }}>
+                <div class="rating-stars" style="color: {{ block.settings.stars_color }};">
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                </div>
+                <div class="rating-text-container">
+                  <span class="rating-text" style="color: {{ block.settings.text_color }} !important;">{{ block.settings.rating_text }}</span>
+                </div>
+              </div>
+              
+            {% when 'heading' %}
+              <h1 class="split-hero__heading" {{ block.shopify_attributes }}>
+                <span class="heading-first-line">{{ block.settings.heading_first_line }}</span>
+                <span class="heading-second-line">{{ block.settings.heading_second_line }}</span>
+              </h1>
+              
+            {% when 'text' %}
+              <div class="split-hero__text" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+              
+            {% when 'buttons' %}
+              <div class="split-hero__buttons" {{ block.shopify_attributes }}>
+                {%- if block.settings.button_label != blank -%}
+                  <a href="{{ block.settings.button_link }}" class="split-hero__button primary-button">
+                    {{ block.settings.button_label }}
+                    {%- if block.settings.show_arrow -%}<span class="button-arrow">→</span>{%- endif -%}
+                  </a>
+                {%- endif -%}
+                
+                {%- if block.settings.show_secondary_button and block.settings.button_label_secondary != blank -%}
+                  <a href="{{ block.settings.button_link_secondary }}" class="split-hero__button secondary-button">
+                    {{ block.settings.button_label_secondary }}
+                  </a>
+                {%- endif -%}
+              </div>
+              
+            {% when 'guarantee' %}
+              <div class="split-hero__guarantee" {{ block.shopify_attributes }}>
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="fill: {{ block.settings.icon_color }};">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span>{{ block.settings.guarantee_text }}</span>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      {% else %}
+        <!-- Default content when no blocks are added -->
+        <div class="split-hero__rating">
+          <div class="rating-stars" style="color: #00b67a;">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <div class="rating-text-container">
+            <span class="rating-text" style="color: #333333 !important;">50,000+ verified 5-star reviews</span>
+          </div>
+        </div>
+        
+        <h1 class="split-hero__heading">
+          <span class="heading-first-line">Kick Your Hangover</span>
+          <span class="heading-second-line">To The Curb</span>
+        </h1>
+        
+        <div class="split-hero__text">
+          <p>Better nights, powered by science. Enjoy peak recovery, liver support, and rapid hydration—plus reduced grogginess, improved energy, and a clear mind in the morning. Wake up feeling 100%. Try it yourself!</p>
+        </div>
+        
+        <div class="split-hero__buttons">
+          <a href="#" class="split-hero__button primary-button">
+            Buy Now
+            <span class="button-arrow">→</span>
+          </a>
+          
+          <a href="#" class="split-hero__button secondary-button">
+            Learn More
+          </a>
+        </div>
+        
+        <div class="split-hero__guarantee">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="fill: #00b67a;">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+          </svg>
+          <span>90-day money back guarantee</span>
+        </div>
+        
+        <div class="split-hero__editor-info" style="margin-top: 20px; padding: 10px; border: 1px dashed #ccc; font-size: 14px; color: #666;">
+          <p>Click "Add block" to customize this section content or edit the section settings.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.scroll-trigger').forEach(element => {
+    observer.observe(element);
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Split Hero",
+  "tag": "section",
+  "class": "section section-split-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image",
+      "info": "For best results, use a square image (1:1 ratio). Any image will be cropped to a square."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image (Optional)",
+      "info": "If provided, this image will be shown instead of the desktop image on mobile devices."
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_orientation",
+      "label": "Mobile Image Orientation",
+      "options": [
+        {
+          "value": "portrait",
+          "label": "Portrait (3:4 ratio)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (16:9 ratio)"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1 ratio)"
+        }
+      ],
+      "default": "portrait",
+      "info": "Choose the aspect ratio for your mobile image."
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "If both image and video are set, video will take priority"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg",
+      "label": "Primary button background",
+      "default": "#0E4B43"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text",
+      "label": "Primary button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "custom_height",
+      "label": "Custom height",
+      "info": "Enter a custom height in pixels. If left blank, the section will be set to 100vh minus 80px."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rating",
+      "name": "Rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "rating_text",
+          "label": "Rating text",
+          "default": "50,000+ verified 5-star reviews"
+        },
+        {
+          "type": "color",
+          "id": "stars_color",
+          "label": "Stars color",
+          "default": "#00b67a"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Rating text color",
+          "default": "#333333"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading_first_line",
+          "label": "First line of heading",
+          "default": "Goodbye Bloat"
+        },
+        {
+          "type": "text",
+          "id": "heading_second_line",
+          "label": "Second line of heading",
+          "default": "Hello Energy"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>A daily health drink packed with nutrients to help alleviate bloating, support sustained energy and whole body health.</p>"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Primary button label",
+          "default": "Buy Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Primary button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_arrow",
+          "label": "Show arrow on primary button",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button_label_secondary",
+          "label": "Secondary button label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link_secondary",
+          "label": "Secondary button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_secondary_button",
+          "label": "Show secondary button",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "guarantee",
+      "name": "Guarantee",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "guarantee_text",
+          "label": "Guarantee text",
+          "default": "90-day money back guarantee"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Checkmark icon color",
+          "default": "#00b67a"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Hero",
+      "category": "Hero",
+      "blocks": [
+        {
+          "type": "rating"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "buttons"
+        },
+        {
+          "type": "guarantee"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

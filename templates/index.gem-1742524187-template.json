@@ -1,0 +1,920 @@
+{
+  "order": [
+    "split_hero_AMPwgN",
+    "16479477632637c9a7",
+    "scrolling_text_CVF9bP",
+    "16620983071df6eb29",
+    "featured_variants_6KdedD",
+    "testimonial_videos_Jp9Ayk",
+    "1662459246bd099bb7",
+    "key_ingredients_yfyJ3b",
+    "shogun_custom_html_9gLt7D",
+    "the_science_jYcUdw",
+    "1662368401fce27368",
+    "faq_with_tabs_RtfUyT",
+    "1662459178b0886a69",
+    "slideshow_w8wVEA",
+    "16615358507b6ff1a8",
+    "collapsible_content_9LmBN7",
+    "email_signup_rzmbzW",
+    "layered_images_with_text_fXkiDw",
+    "featured_product_6CqmkL"
+  ],
+  "sections": {
+    "split_hero_AMPwgN": {
+      "type": "split-hero",
+      "blocks": {
+        "heading_YcHRkN": {
+          "type": "heading",
+          "settings": {
+            "heading_first_line": "Kick Your Hangover",
+            "heading_second_line": "To The Curb"
+          }
+        },
+        "text_cKwpYj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Better nights, powered by science.<\/strong> Enjoy peak recovery, liver support, and rapid hydration—plus reduced grogginess, improved energy, and a clear mind in the morning. Wake up feeling 100%. Try it yourself!<\/p>"
+          }
+        },
+        "rating_M3GYXq": {
+          "type": "rating",
+          "settings": {
+            "rating_text": "2,500+ Better Mornings",
+            "stars_color": "#91be61",
+            "text_color": "#000000"
+          }
+        },
+        "buttons_pJfcp4": {
+          "type": "buttons",
+          "settings": {
+            "button_label": "Shop Hangover Recovery",
+            "button_link": "shopify:\/\/products\/revyve-night-out-recovery-mix",
+            "show_arrow": true,
+            "button_label_secondary": "Learn More",
+            "button_link_secondary": "",
+            "show_secondary_button": false
+          }
+        },
+        "guarantee_9xy8wi": {
+          "type": "guarantee",
+          "disabled": true,
+          "settings": {
+            "guarantee_text": "90-day money back guarantee",
+            "icon_color": "#00b67a"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YcHRkN",
+        "text_cKwpYj",
+        "rating_M3GYXq",
+        "buttons_pJfcp4",
+        "guarantee_9xy8wi"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/91be61_2.png",
+        "mobile_image": "shopify:\/\/shop_images\/Untitled_design_1_cd42445c-3526-4a62-9ee6-b06ed508157b.png",
+        "mobile_image_orientation": "square",
+        "video_url": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "primary_button_bg": "#000000",
+        "primary_button_text": "#ffffff",
+        "custom_height": ""
+      }
+    },
+    "16479477632637c9a7": {
+      "type": "slideshow",
+      "blocks": {
+        "164794776393e76b8e-2": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "shopify:\/\/products\/revyve-night-out-recovery-mix",
+            "video_background": true,
+            "video": "https:\/\/www.youtube.com\/watch?v=dHYTo6Da2aA",
+            "video_hosted": "shopify:\/\/files\/videos\/videoplayback.mp4",
+            "subheading": "",
+            "heading": "KICK YOUR HANGOVER \nTO THE CURB",
+            "heading_size": "h1-large",
+            "content": "",
+            "description_size": "large",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "SHOP HANGOVER RECOVERY",
+            "button_1_link": "shopify:\/\/products\/revyve-night-out-recovery-mix",
+            "button_1_outline": true,
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        },
+        "164794776393e76b8e-1": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video": "https:\/\/www.youtube.com\/watch?v=26-OFTNAAno",
+            "video_hosted": "shopify:\/\/files\/videos\/trimmed2 On Running x Footlocker - Cinematic Running Commercial (Shot on Red Komodo) - Trim.mp4",
+            "subheading": "",
+            "heading": "DON'T LET HAPPY HOUR RUIN THE NEXT 24.",
+            "heading_size": "h1-large",
+            "content": "",
+            "description_size": "small",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "overlay_gradient": "",
+            "button_1_text": "SHOP HANGOVER RECOVERY",
+            "button_1_link": "shopify:\/\/products\/revyve-night-out-recovery-mix",
+            "button_1_outline": true,
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        }
+      },
+      "block_order": [
+        "164794776393e76b8e-2",
+        "164794776393e76b8e-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 10,
+        "transition": "swipe",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "scrolling_text_CVF9bP": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_PgPwxV": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Zzz.svg",
+            "text": "OVERNIGHT Recovery",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_bdphcg": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/shield.svg",
+            "text": "Hangover Prevention",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_QcWEKT": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Morning.svg",
+            "text": "Productive Mornings",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_PgPwxV",
+        "text_bdphcg",
+        "text_QcWEKT"
+      ],
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "20s",
+        "text_size": 24,
+        "text_uppercase": true,
+        "image_size": "small",
+        "color_bg": "#000000",
+        "color_text": "#ffffff",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "16620983071df6eb29": {
+      "type": "text-with-icons",
+      "blocks": {
+        "feature_PqKChz": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector_4.svg",
+            "heading": "HANGXIETY"
+          }
+        },
+        "feature_ApaM7d": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_1_c7bc6a4a-457a-4ab2-bc86-85f3dbb38a4a.svg",
+            "heading": "NAUSEA"
+          }
+        },
+        "feature_f76jHa": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_1_1.svg",
+            "heading": "DEHYDRATION"
+          }
+        },
+        "feature_ELYwxb": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Heart.svg",
+            "heading": "LIVER SUPPORT"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PqKChz",
+        "feature_ApaM7d",
+        "feature_f76jHa",
+        "feature_ELYwxb"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Untitled-1.png",
+        "heading": "HANGOVERS SUCK",
+        "subheading": "REVYVE MAKES IT SUCK LESS",
+        "description": "Formulated with ingredients traditionally used to support:",
+        "color_bg": "#ffffff",
+        "color_heading": "#151515",
+        "color_text": "#151515",
+        "button_text": "Shop Hangover Recovery",
+        "button_link": "shopify:\/\/products\/revyve-night-out-recovery-mix"
+      }
+    },
+    "featured_variants_6KdedD": {
+      "type": "FeaturedVariants",
+      "settings": {
+        "featured_product": "revyve-night-out-recovery-mix",
+        "section_title": "Shop Our Flavors",
+        "lemon_lime_hover_image": "shopify:\/\/shop_images\/thumbnail_LLStick_1.jpg",
+        "raspberry_hover_image": "shopify:\/\/shop_images\/thumbnail_RStick_0294b99f-ceac-4ebb-96a4-0776961b8624.jpg"
+      }
+    },
+    "testimonial_videos_Jp9Ayk": {
+      "type": "testimonial-videos",
+      "blocks": {
+        "video_X6BpEj": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/Screenshot_2025-02-13_at_4.05.25_PM.png",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/d6ae0bf98c93400696ab2795b294c909.mp4",
+            "caption": "Run club > sunday scaries"
+          }
+        },
+        "video_CJRh97": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/thumbnail_IMG_1178.jpg",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/000080173008458bb503cbddeb1aff4a.mp4",
+            "caption": "A peek behind the scenes"
+          }
+        },
+        "video_LhUKXq": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/thumbnail_IMG_1195.jpg",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7ff6c179ad27456288d6aa0805f931f6.mp4",
+            "caption": "Natural selection at work"
+          }
+        },
+        "video_JbwAw3": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify:\/\/shop_images\/thumbnail_IMG_1177.jpg",
+            "video_url": "",
+            "caption": "Night out vs. Spartan race"
+          }
+        }
+      },
+      "block_order": [
+        "video_X6BpEj",
+        "video_CJRh97",
+        "video_LhUKXq",
+        "video_JbwAw3"
+      ],
+      "settings": {
+        "background_color": "#000000"
+      }
+    },
+    "1662459246bd099bb7": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 15,
+        "spacer_desktop": 15,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "key_ingredients_yfyJ3b": {
+      "type": "key-ingredients",
+      "blocks": {
+        "key_ing_block_JHjHmh": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "Dihydromyricetin (DHM)",
+            "expanded_text": "Herb that counteracts acute alcohol intoxication and reduces alcohol withdrawal symptoms, preventing adverse effects of alcohol on your liver.",
+            "image_alt": "Image of Dihydromyricetin"
+          }
+        },
+        "key_ing_block_JWFVEj": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "Milk Thistle",
+            "expanded_text": "Natural antioxidant that protects liver cells & function, aids in detoxification, and reduces inflammation after alcohol intake.",
+            "image_alt": "Image of Milk Thistle"
+          }
+        },
+        "key_ing_block_Q6WFJJ": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "Ginger Extract",
+            "expanded_text": "Root extract that helps ease nausea and soothes digestion to alleviate stomach discomfort.",
+            "image_alt": "Image of Ginger"
+          }
+        },
+        "key_ing_block_hifm9i": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "N-Acetyl-Cysteine",
+            "expanded_text": "Powerful antioxidant that works synergistically with DHM to neutralize toxic compounds created by your liver and increase metabolism.",
+            "image_alt": "Image of N-Acetyl-Cysteine"
+          }
+        },
+        "key_ing_block_4hgtHX": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "Electrolytes",
+            "expanded_text": "Sodium Chloride:\n- Restores the body's fluid balance and alleviates dehydration.\n\nMagnesium Glycinate:\n- Crucial for muscle health, energy production, blood pressure regulation, immune systems, headache relief, and improves sleep.\n\nPotassium Chloride:\n- Supports nerve and muscle function while preventing cramping.",
+            "image_alt": "Image representing Electrolytes & Vitamins"
+          }
+        },
+        "key_ing_block_HxaJ7b": {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "Vitamins",
+            "expanded_text": "Vitamin B Complex:\n- Fights nausea, fatigue, and anxiety. Aids the body in producing and storing energy. Promotes nervous system and blood cell health.\n\nVitamin C:\n- Antioxidant that boosts the immune system and reduces oxidative stress.",
+            "image_alt": "Ingredient image alt text"
+          }
+        }
+      },
+      "block_order": [
+        "key_ing_block_JHjHmh",
+        "key_ing_block_JWFVEj",
+        "key_ing_block_Q6WFJJ",
+        "key_ing_block_hifm9i",
+        "key_ing_block_4hgtHX",
+        "key_ing_block_HxaJ7b"
+      ],
+      "settings": {
+        "section_title": "Key Ingredients",
+        "section_subtitle": "Discover our powerful blend of natural ingredients designed to help your body recover fast and feel its best.",
+        "main_image": "shopify:\/\/shop_images\/image.png",
+        "main_image_alt": "Section main image"
+      }
+    },
+    "shogun_custom_html_9gLt7D": {
+      "type": "shogun-custom-html",
+      "custom_css": [],
+      "settings": {
+        "html": "<!-- Satoshi Font Import -->\n<style>\n  @import url('https:\/\/api.fontshare.com\/v2\/css?f[]=satoshi@900,700,500,400&display=swap');\n  \n  \/* Ensure Satoshi is applied to all elements in this section *\/\n  .comparison-ag1-style,\n  .comparison-ag1-style *,\n  .chart-title,\n  .ag1-comparison-table,\n  .ag1-comparison-table th,\n  .ag1-comparison-table td,\n  .brand-col span {\n    font-family: 'Satoshi', sans-serif !important;\n  }\n<\/style>\n\n<section class=\"comparison-ag1-style\">\n    <!-- Chart Title with Underlined \"All-In-One\" -->\n    <h2 class=\"chart-title\">\n     More Than Just Hydration - Real Recovery <span class=\"underline\"><\/span> <\/h2>\n    \n    <div class=\"ag1-comparison-table-wrapper\">\n      <table class=\"ag1-comparison-table\">\n        <colgroup>\n          <col class=\"features-column\">\n          <col class=\"revyve-column\">\n          <col>\n          <col>\n          <col>\n        <\/colgroup>\n        <thead>\n          <tr>\n            <!-- Features Column (Sticky) -->\n            <th class=\"features-col\">Features<\/th>\n            \n            <!-- REVYVE Column -->\n            <th class=\"brand-col revyve-col\">\n              <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0615\/9473\/0633\/files\/RevyveStick.jpg?v=1739512161\" alt=\"REVYVE Logo\" class=\"brand-logo\">\n              <span>REVYVE<\/span>\n            <\/th>\n            \n            <!-- Liquid I.V. Column -->\n            <th class=\"brand-col\">\n              <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0615\/9473\/0633\/files\/LiquidIVStick.webp?v=1739512241\" alt=\"Liquid I.V. Logo\" class=\"brand-logo\">\n              <span>Liquid I.V.<\/span>\n            <\/th>\n            \n            <!-- Pedialyte Column -->\n            <th class=\"brand-col\">\n              <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0615\/9473\/0633\/files\/PedialyteBottle.png?v=1739512221\" alt=\"Pedialyte Logo\" class=\"brand-logo\">\n              <span>Pedialyte<\/span>\n            <\/th>\n            \n            <!-- Waterboy Column -->\n            <th class=\"brand-col\">\n              <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0615\/9473\/0633\/files\/WaterboyStick.webp?v=1739512197\" alt=\"Waterboy Logo\" class=\"brand-logo\">\n              <span>Waterboy<\/span>\n            <\/th>\n          <\/tr>\n        <\/thead>\n        <tbody>\n          <!-- Row 1: DHM & Milk Thistle for Liver Detox -->\n          <tr>\n            <td>DHM &amp; Milk Thistle for Liver Detox<\/td>\n            <td class=\"revyve-col check\">✓<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"red-x\">❌<\/td>\n          <\/tr>\n          <!-- Row 2: Sugar -->\n          <tr>\n            <td>Sugar<\/td>\n            <td class=\"revyve-col\">0g<\/td>\n            <td>11g<\/td>\n            <td>25g<\/td>\n            <td>0g<\/td>\n          <\/tr>\n          <!-- Row 3: Electrolytes -->\n          <tr>\n            <td>Electrolytes<\/td>\n            <td class=\"revyve-col\">800mg<\/td>\n            <td>870mg<\/td>\n            <td>3,050mg<\/td>\n            <td>3,200mg<\/td>\n          <\/tr>\n          <!-- Row 4: Ginger for Hangxiety & Nausea -->\n          <tr>\n            <td>Ginger for Hangxiety &amp; Nausea<\/td>\n            <td class=\"revyve-col check\">✓<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"waterboy-check\">✓<\/td>\n          <\/tr>\n          <!-- Row 5: Immunity Boost -->\n          <tr>\n            <td>Immunity Boost<\/td>\n            <td class=\"revyve-col check\">✓<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"red-x\">❌<\/td>\n            <td class=\"red-x\">❌<\/td>\n          <\/tr>\n          <!-- Row 6: Vitamin B Complex -->\n          <tr>\n            <td>Vitamin B Complex<\/td>\n            <td class=\"revyve-col\">750% DV<\/td>\n            <td>280% DV<\/td>\n            <td>0% DV<\/td>\n            <td>500% DV<\/td>\n          <\/tr>\n          <!-- Row 7: Vitamin C -->\n          <tr>\n            <td>Vitamin C<\/td>\n            <td class=\"revyve-col\">85% DV<\/td>\n            <td>80% DV<\/td>\n            <td>0% DV<\/td>\n            <td>500% DV<\/td>\n          <\/tr>\n          <!-- Row 8: Price (USD) -->\n          <tr>\n            <td>Price (USD)<\/td>\n            <td class=\"revyve-col\">$2.50<\/td>\n            <td>$1.50<\/td>\n            <td>$7.00<\/td>\n            <td>$2.10<\/td>\n          <\/tr>\n        <\/tbody>\n      <\/table>\n    <\/div>\n  <\/section>\n  \n  <style>\n  \/* Base Wrapper *\/\n  .comparison-ag1-style {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 60px 20px;\n    font-family: 'Satoshi', sans-serif;\n    color: #333;\n  }\n  \n  \/* Chart Title *\/\n  .chart-title {\n    text-align: center;\n    font-size: 2rem;\n    font-weight: 700;\n    margin-bottom: 20px;\n    letter-spacing: -0.02em;\n    font-family: 'Satoshi', sans-serif;\n  }\n  \n  \/* Underline \"All-In-One\" *\/\n  .underline {\n    text-decoration: underline;\n  }\n  \n  \/* Table wrapper with rounded corners, deep shadow, and horizontal scroll *\/\n  .ag1-comparison-table-wrapper {\n    border-radius: 12px;\n    box-shadow: 0 8px 24px rgba(0,0,0,0.2);\n    background-color: #fff;\n    overflow-x: auto;\n  }\n  \n  \/* Table Base Styles *\/\n  .ag1-comparison-table {\n    width: 100%;\n    border-collapse: collapse;\n    font-size: 1rem;\n    font-family: 'Satoshi', sans-serif;\n  }\n\n  \/* Remove all the previous gradient attempts *\/\n  .ag1-comparison-table::before {\n    display: none;\n  }\n  \n  \/* REVYVE Column Text Styling *\/\n  .revyve-col {\n    color: #fff;\n    font-weight: 700;\n    text-align: center;\n    background: linear-gradient(to bottom, #afbe59, #91bc48) !important;\n  }\n\n  .revyve-col span {\n    font-size: 1.2rem;\n  }\n\n  \/* Remove the colgroup styling *\/\n  .revyve-column {\n    background: none;\n  }\n  \n  \/* Table Header *\/\n  .ag1-comparison-table thead tr {\n    background-color: #fff;\n    border-bottom: 1px solid #ddd;\n  }\n  \n  .ag1-comparison-table th {\n    text-align: center;\n    font-weight: 600;\n    padding: 1rem;\n    vertical-align: middle;\n    font-family: 'Satoshi', sans-serif;\n  }\n  \n  \/* Features Column (Sticky) *\/\n  .features-col {\n    width: 240px;\n    font-weight: 700;\n    text-align: left;\n    position: sticky;\n    left: 0;\n    background-color: #fff;\n    z-index: 3;\n  }\n  \n  \/* Brand Columns *\/\n  .brand-col {\n    width: 160px;\n    text-align: center;\n  }\n  \n  \/* Brand Logos *\/\n  .brand-logo {\n    display: block;\n    margin: 0 auto 0.5rem;\n    max-height: 60px;\n  }\n  \n  \/* Brand Names *\/\n  .brand-col span {\n    display: block;\n    font-size: 0.9rem;\n    font-weight: 700;\n    font-family: 'Satoshi', sans-serif;\n  }\n  \n  \/* REVYVE Check Marks: now 1.95rem (25% smaller than 2.6rem) *\/\n  .revyve-col.check {\n    font-size: 1.95rem;\n  }\n  \n  \/* Waterboy Check Mark Styling: 1.6rem *\/\n  .waterboy-check {\n    font-size: 1.6rem;\n  }\n  \n  \/* Red X Styling for Competitor Columns *\/\n  .red-x {\n    color: #D10000;\n    font-weight: 700;\n    font-size: 1.1rem;\n  }\n  \n  \/* Table Body *\/\n  .ag1-comparison-table tbody tr {\n    border-bottom: 1px solid #eee;\n  }\n  \n  .ag1-comparison-table td {\n    padding: 1rem;\n    vertical-align: middle;\n    text-align: center;\n    font-weight: 400;\n    font-family: 'Satoshi', sans-serif;\n  }\n  \n  \/* Sticky Features Data Cells *\/\n  .ag1-comparison-table td:first-child {\n    text-align: left;\n    font-weight: 700;\n    color: #333;\n    background-color: #fff;\n    position: sticky;\n    left: 0;\n    z-index: 2;\n  }\n  \n  \/* Optional Row Striping *\/\n  .ag1-comparison-table tbody tr:nth-child(even) {\n    background-color: #fafafa;\n  }\n  \n  \/* Mobile Optimization *\/\n  @media (max-width: 767px) {\n    .chart-title {\n      font-size: 1.75rem;\n    }\n    .ag1-comparison-table th, \n    .ag1-comparison-table td {\n      padding: 0.75rem;\n      font-size: 0.9rem;\n    }\n    .features-col {\n      width: 180px;\n    }\n  }\n  <\/style>"
+      }
+    },
+    "the_science_jYcUdw": {
+      "type": "the-science",
+      "blocks": {
+        "science_block_D6QzMH": {
+          "type": "science_block",
+          "settings": {
+            "title": "Our Research",
+            "text": "REVYVE is formulated based on robust scientific research that pinpoints the root causes of hangover symptoms. Our formula helps mitigate dehydration and oxidative stress.",
+            "expanded_text": "In-depth details about the research: we analyzed thousands of data points from clinical trials, focusing on how certain nutrients can replenish your system. Our proprietary blend is backed by a peer-reviewed study demonstrating quicker recovery times.",
+            "image": "shopify:\/\/shop_images\/4ce74b2a513a4593303806626f730244_1.jpg",
+            "image_alt": "Scientific research image"
+          }
+        },
+        "function_block_69YNY3": {
+          "type": "function_block",
+          "settings": {
+            "title": "How It Works",
+            "text": "Our supplement works by replenishing vital nutrients and antioxidants lost during alcohol consumption. The carefully selected ingredients support rapid recovery by rehydrating and restoring balance.",
+            "expanded_text": "REVYVE’s specialized formula uses a ratio of electrolytes, vitamins, and herbal extracts to accelerate your body’s rehydration. The synergy between antioxidants and adaptogens also helps combat oxidative stress and inflammation.",
+            "image": "shopify:\/\/shop_images\/d6ce91f4eafeb1485ee4149d409a6fb7.jpg",
+            "image_alt": "Mechanism illustration"
+          }
+        },
+        "benefits_block_h9MYqf": {
+          "type": "benefits_block",
+          "settings": {
+            "title": "Benefits",
+            "text": "REVYVE offers improved energy, clarity, and overall wellness after a night of drinking.",
+            "expanded_text": "Not only does REVYVE target hangover symptoms, but it also helps maintain healthy immune function and day-to-day wellness. Our carefully selected nutrients and antioxidants provide a balanced approach to recovery.",
+            "image": "shopify:\/\/shop_images\/283fe95d295b499d50551ea86432e1c6.jpg",
+            "image_alt": "People feeling great"
+          }
+        }
+      },
+      "block_order": [
+        "science_block_D6QzMH",
+        "function_block_69YNY3",
+        "benefits_block_h9MYqf"
+      ],
+      "settings": {
+        "main_title": "The Science Behind REVYVE",
+        "main_subtitle": "Discover the research that makes REVYVE the ultimate hangover recovery supplement."
+      }
+    },
+    "1662368401fce27368": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "faq_with_tabs_RtfUyT": {
+      "type": "faq-with-tabs",
+      "blocks": {
+        "faq_item_DD9xQb": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "What is REVYVE, and how does it work?",
+            "answer": "<p>REVYVE is a <strong>Night Out Recovery Mix<\/strong> designed to help your body process alcohol more efficiently and support your liver. It contains DHM, electrolytes, and other key ingredients to help you wake up feeling refreshed and ready to take on the day.<\/p>"
+          }
+        },
+        "faq_item_wfATX8": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "When should I take REVYVE?",
+            "answer": "<p>You should take REVYVE <strong>before or after<\/strong> your night out, ideally while drinking. Simply mix it with water and drink it before bed or between drinks for the best results. product...<\/p>"
+          }
+        },
+        "faq_item_Fb7iVJ": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "What ingredients are in REVYVE?",
+            "answer": "<p>REVYVE contains <strong>DHM (Dihydromyricetin), electrolytes, vitamins B & C, milk thistle, ginger extract, and L-theanine.<\/strong> It’s formulated to support hydration, metabolism, and liver function.<\/p>"
+          }
+        },
+        "faq_item_YqCCAV": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "Does REVYVE completely prevent hangovers?",
+            "answer": "<p>While REVYVE can significantly <strong>reduce<\/strong> the negative effects of alcohol (like grogginess, dehydration, and sluggishness), individual results may vary based on factors like alcohol intake, hydration, and metabolism.<\/p><p><\/p>"
+          }
+        },
+        "faq_item_b8JrDY": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "Is REVYVE safe to take with other supplements or medications?",
+            "answer": "<p>REVYVE is made from natural ingredients, but if you're taking any medications or have health concerns, we recommend consulting with your doctor before use.<\/p>"
+          }
+        },
+        "faq_item_NJz4KM": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product",
+            "question": "Can I take REVYVE if I don’t drink alcohol?",
+            "answer": "<p>Absolutely! REVYVE is packed with electrolytes and vitamins, making it a great <strong>hydration and recovery drink<\/strong> for workouts, travel, or long nights.<\/p>"
+          }
+        },
+        "faq_item_rNYbhR": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard shipping within the U.S. takes <strong>3-5 business days<\/strong>, while expedited shipping options are available at checkout.<\/p>"
+          }
+        },
+        "faq_item_mXzcXa": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "Do you offer international shipping?",
+            "answer": "<p>Not yet! But we’re working on expanding our shipping options—stay tuned.<\/p>"
+          }
+        },
+        "faq_item_rx8WfM": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "How much does shipping cost?",
+            "answer": "<p>Shipping costs vary based on your location and selected shipping method. You’ll see the exact price at checkout. <strong>Shipping is FREE <\/strong>with orders over $50+.<\/p>"
+          }
+        },
+        "faq_item_mRhFfC": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "Can I track my order?",
+            "answer": "<p>Yes! Once your order ships, you’ll receive a <strong>tracking number<\/strong> via email so you can follow your package’s journey.<\/p>"
+          }
+        },
+        "faq_item_t3dp8M": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "What if my package is lost or damaged?",
+            "answer": "<p>If your order is lost or arrives damaged, email us at <a><strong>support@drinkrevyve.com<\/strong><\/a>, and we’ll make it right.<\/p>"
+          }
+        },
+        "faq_item_dmj8gc": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping",
+            "question": "Can I change my shipping address after ordering?",
+            "answer": "<p>If your order hasn’t shipped yet, email us ASAP, and we’ll try to update the address before it goes out.<\/p>"
+          }
+        },
+        "faq_item_rAk3AC": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "Where can I buy REVYVE?",
+            "answer": "<p>You can order directly from our website at <a href=\"https:\/\/drinkrevyve.com\"><strong>drinkrevyve.com<\/strong><\/a> or find us on TikTok Shop!<\/p>"
+          }
+        },
+        "faq_item_UNjtPW": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "Do you offer bulk discounts or wholesale pricing?",
+            "answer": "<p>Yes! If you're interested in selling REVYVE or placing a bulk order, contact us at <a><strong>partnerships@drinkrevyve.com<\/strong><\/a> for more info.<\/p>"
+          }
+        },
+        "faq_item_aRDRxD": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "Can I become a brand ambassador for REVYVE?",
+            "answer": "<p>We’re always looking for passionate people to help spread the word! Apply to be an ambassador by DMing us on Instagram or emailing <a><strong>contact@drinkrevyve.com<\/strong><\/a>.<\/p>"
+          }
+        },
+        "faq_item_4htL3p": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "What’s your return policy?",
+            "answer": "<p>Due to the nature of our product, we <strong>do not accept returns<\/strong>, but if you’re unsatisfied for any reason, reach out to our team, and we’ll work to make things right.<\/p>"
+          }
+        },
+        "faq_item_HYcxWA": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "Is REVYVE FDA-approved?",
+            "answer": "<p>REVYVE is made in an <strong>FDA-registered<\/strong> facility and follows strict quality standards, but as a dietary supplement, it is not directly FDA-approved.<\/p>"
+          }
+        },
+        "faq_item_zYTBaa": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Other",
+            "question": "How can I contact customer support?",
+            "answer": "<ol><li>Shoot us an email at <a><strong>support@drinkrevyve.com<\/strong><\/a>, and we’ll get back to you ASAP!<\/li><\/ol>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_DD9xQb",
+        "faq_item_wfATX8",
+        "faq_item_Fb7iVJ",
+        "faq_item_YqCCAV",
+        "faq_item_b8JrDY",
+        "faq_item_NJz4KM",
+        "faq_item_rNYbhR",
+        "faq_item_mXzcXa",
+        "faq_item_rx8WfM",
+        "faq_item_mRhFfC",
+        "faq_item_t3dp8M",
+        "faq_item_dmj8gc",
+        "faq_item_rAk3AC",
+        "faq_item_UNjtPW",
+        "faq_item_aRDRxD",
+        "faq_item_4htL3p",
+        "faq_item_HYcxWA",
+        "faq_item_zYTBaa"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "subheading": "Select a category to see answers"
+      }
+    },
+    "1662459178b0886a69": {
+      "type": "rich-text",
+      "blocks": {
+        "4551cbda-76ff-4a07-a279-a29df7956af6": {
+          "type": "subheading",
+          "settings": {
+            "text": "WHAT THEY SAY ABOUT REVYVE"
+          }
+        }
+      },
+      "block_order": [
+        "4551cbda-76ff-4a07-a279-a29df7956af6"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "grid",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "slideshow_w8wVEA": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_rYPHti": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/thumbnail_IMG_0128.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/thumbnail_IMG_0128.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "subheading": "",
+            "heading": "JOIN OUR COMMUNITY",
+            "heading_size": "h1-large",
+            "content": "At REVYVE, we’re not just about preventing hangovers—we’re about fueling productivity. Join us and become part of the REVYVE movement, connecting with a community driven by energy, health, and people who live life to the fullest.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "overlay_color": "#000000",
+            "overlay_opacity": 55,
+            "overlay_gradient": "",
+            "button_1_text": "join the team",
+            "button_1_link": "shopify:\/\/pages\/partners",
+            "button_1_outline": true,
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_rYPHti"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "swipe",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "16615358507b6ff1a8": {
+      "type": "testimonials",
+      "blocks": {
+        "60961cb1-416e-4c98-a9ec-2a41dfae8911": {
+          "type": "quote",
+          "settings": {
+            "stars": "5",
+            "text": "I didn’t think something like this would work, but I was totally wrong! I took REVYVE after a night out, and the next morning I felt amazing. No grogginess, no hangover, just ready to go. It’s honestly a lifesaver!",
+            "author": "Sarah L."
+          }
+        },
+        "2bf39bcc-dfc9-43ae-b6a4-9cecdb3197c9": {
+          "type": "quote",
+          "settings": {
+            "stars": "5",
+            "text": "Was a little skeptical, but wow, REVYVE works! I usually wake up feeling pretty rough after a night of drinks, but I woke up feeling clear-headed and energized. Definitely adding this to my routine!",
+            "author": "James M."
+          }
+        },
+        "f0e5414e-308c-4a64-91b5-1f08b8650731": {
+          "type": "quote",
+          "settings": {
+            "stars": "5",
+            "text": "I’ve tried other hangover remedies before, but nothing comes close to REVYVE. I woke up feeling way better than I expected—no nausea or tiredness. It’s like I didn’t even go out last night!",
+            "author": "Emily R."
+          }
+        },
+        "quote_6xaeVJ": {
+          "type": "quote",
+          "settings": {
+            "stars": "5",
+            "text": "This stuff is legit. I took it after a big night, and honestly, I felt so good in the morning that I thought I’d forgotten how much I drank. No hangover, no sluggishness. Highly recommend!",
+            "author": "Chris W."
+          }
+        },
+        "quote_rHhHYU": {
+          "type": "quote",
+          "settings": {
+            "stars": "5",
+            "text": "I don’t usually leave reviews, but REVYVE deserves one. I’ve been using it for a few weeks now, and every time I wake up feeling refreshed. I love that it’s natural too. Can’t live without it!",
+            "author": "Amanda P."
+          }
+        }
+      },
+      "block_order": [
+        "60961cb1-416e-4c98-a9ec-2a41dfae8911",
+        "2bf39bcc-dfc9-43ae-b6a4-9cecdb3197c9",
+        "f0e5414e-308c-4a64-91b5-1f08b8650731",
+        "quote_6xaeVJ",
+        "quote_rHhHYU"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "text_size": "medium",
+        "pagination": "dots",
+        "autoplay": true,
+        "autoplay_length": 5,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_9LmBN7": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_p7UbFP": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Dihydromyricetin (DHM)",
+            "open": false,
+            "content": "<p>Herb that counteracts acute alcohol intoxication and reduces alcohol withdrawal symptoms, preventing adverse effects of alcohol on your liver.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_XCrpHE": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Milk Thistle",
+            "open": false,
+            "content": "<p>Natural antioxidant that protects liver cells & function, aids in detoxification, and reduces inflammation after alcohol intake.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_wJ3UnC": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ginger Extract",
+            "open": false,
+            "content": "<p>Root extract that helps ease nausea and soothes digestion to alleviate stomach discomfort.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_Xd7fhC": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "N-Acetyl-Cysteine",
+            "open": false,
+            "content": "<p>Powerful antioxidant that works synergistically with DHM to neutralize toxic compounds created by your liver and increase metabolism.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_T9DbBG": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Electrolytes",
+            "open": false,
+            "content": "<p><strong>Sodium Chloride:<\/strong><br\/>- Restores the body's fluid balance and alleviates dehydration.<br\/><strong>Magnesium Glycinate:<br\/><\/strong>- Crucial for muscle health, energy production, blood pressure regulation, immune systems, headache relief, and improves sleep.<br\/><strong>Potassium Chloride:<br\/><\/strong>- Supports nerve and muscle function while preventing cramping.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_xiEC3H": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Vitamins",
+            "open": false,
+            "content": "<p><strong>Vitamin B Complex: <br\/><\/strong>- Fights nausea, fatigue, and anxiety. Aids the body in producing and storing energy. Promotes nervous system and blood cell health.<br\/><strong>Vitamin C: <br\/><\/strong>- Antioxidant that boosts the immune system and reduces oxidative stress.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_p7UbFP",
+        "collapsible_tab_XCrpHE",
+        "collapsible_tab_wJ3UnC",
+        "collapsible_tab_Xd7fhC",
+        "collapsible_tab_T9DbBG",
+        "collapsible_tab_xiEC3H"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "SCIENCE BEHIND REVYVE",
+        "description": "<p>REVYVE’s powerful formula is backed by science, featuring a blend of natural ingredients that tackle hangovers before they ever exist. Designed to detoxify, rehydrate, and help your body recover faster, here’s a breakdown of what makes it work:<\/p>",
+        "uppercase_heading": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "email_signup_rzmbzW": {
+      "type": "email-signup",
+      "disabled": true,
+      "settings": {
+        "heading": "GET 15% OFF YOUR FIRST ORDER",
+        "description": "<p>Sign up for our newsletter and unlock exclusive deals, stay updated on groundbreaking solutions, and enjoy 15% off your first order! Don't miss out on transforming your recovery game—your mornings will thank you.<\/p>",
+        "color_bg": "#151515",
+        "color_text": "#ffffff",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "layered_images_with_text_fXkiDw": {
+      "type": "layered-images-with-text",
+      "blocks": {
+        "subheading_pRYQWi": {
+          "type": "subheading",
+          "settings": {
+            "text": "DO IT RIGHT"
+          }
+        },
+        "heading_DNGByQ": {
+          "type": "heading",
+          "settings": {
+            "text": "DON'T LET HAPPY HOUR RUIN YOUR NEXT 24.",
+            "heading_size": "h2"
+          }
+        },
+        "text_dtzXCq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With REVYVE, you’re always in control. Our potent, all-natural blend fights off the worst hangovers, turning late nights into powerful, productive mornings. Detoxify, rehydrate, and replenish—so you can push your limits and wake up ready to crush the day. Whether it’s a wild happy hour or an unforgettable night out, REVYVE has your back. No excuses. No regrets. Just a formula designed to keep you at your best. Join the REVYVE revolution and wake up hangover-free, ready to dominate your next 24 hours.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pRYQWi",
+        "heading_DNGByQ",
+        "text_dtzXCq"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/REVYVEMarch2024-01.jpg",
+        "image_ratio": "adapt",
+        "image_2": "shopify:\/\/shop_images\/thumbnail_IMG_9001.jpg",
+        "image_ratio_2": "adapt",
+        "image_ratio_3": "adapt",
+        "full_width": false,
+        "layout": "text_first",
+        "content_alignment": "text-left",
+        "content_position": "middle",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_product_6CqmkL": {
+      "type": "featured-product",
+      "disabled": true,
+      "settings": {
+        "heading": "Featured product",
+        "heading_left": false,
+        "description": "<p>Add a short description for this featured product<\/p>",
+        "full_width": false,
+        "product": "",
+        "show_taxes_included": true,
+        "enable_sticky_info": true,
+        "media_layout": "grid",
+        "display_slider_pagination": true,
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  }
+}

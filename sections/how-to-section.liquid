@@ -1,0 +1,153 @@
+{% comment %}
+  ============================
+  HOW TO SECTION (FULL BLEED)
+  ============================
+  
+  - Left 50%: Full-cover image with no extra gap.
+  - Right 50%: Centered text block.
+  - Responsive: On mobile, image stacks above text.
+{% endcomment %}
+
+<section id="how-to-section" style="margin:0; padding:0; width:100%; overflow:hidden;">
+  <style>
+    /* Import Satoshi font */
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+    
+    /* Apply Satoshi font to the section */
+    #how-to-section {
+      font-family: 'Satoshi', sans-serif;
+    }
+    
+    #how-to-section h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 900; /* Using Satoshi Black for headings */
+      letter-spacing: -0.02em;
+    }
+    
+    #how-to-section .how-to-text div {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 400;
+    }
+  </style>
+  
+  <div class="how-to-wrapper" style="
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: auto;
+    min-height: 600px; /* Adjust as desired */
+  ">
+    <!-- LEFT HALF: IMAGE -->
+    <div class="how-to-image" style="
+      position: relative;
+      flex: 0 0 50%;
+      width: 50%;
+      overflow: hidden;
+    ">
+      {% if section.settings.left_image %}
+        <img
+          src="{{ section.settings.left_image | img_url: '1600x' }}"
+          alt="How To Section Image"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          "
+        />
+      {% endif %}
+    </div>
+
+    <!-- RIGHT HALF: TEXT (centered) -->
+    <div class="how-to-text" style="
+      flex: 0 0 50%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      box-sizing: border-box;
+    ">
+      {% for block in section.blocks %}
+        {% if block.type == 'text_block' %}
+          <div style="max-width: 600px; text-align: left;">
+            {% if block.settings.title != blank %}
+              <h2 style="
+                font-size: 36px;
+                font-weight: 700;
+                margin-bottom: 20px;
+              ">
+                {{ block.settings.title }}
+              </h2>
+            {% endif %}
+            {% if block.settings.body_text != blank %}
+              <div style="font-size: 16px; line-height: 1.6;">
+                {{ block.settings.body_text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    /* Responsive stacking */
+    @media (max-width: 768px) {
+      #how-to-section .how-to-wrapper {
+        flex-direction: column;
+        min-height: auto !important;
+      }
+      #how-to-section .how-to-image,
+      #how-to-section .how-to-text {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        height: auto;
+      }
+      #how-to-section .how-to-text {
+        padding: 20px;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "How To Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image",
+      "info": "This image fills the left half (full width)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Bold Header",
+          "default": "When To Use REVVYE™ Night Out Recovery Mix"
+        },
+        {
+          "type": "textarea",
+          "id": "body_text",
+          "label": "Body Text",
+          "default": "Your body text goes here. This formula was developed..."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 1,
+  "presets": [
+    {
+      "name": "How To Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

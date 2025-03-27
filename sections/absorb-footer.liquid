@@ -1,0 +1,609 @@
+<!-- BEGIN AbsorbMore-Style Footer with Redesigned Center, Vertical Socials & Image Icons (Updated Subscribe Button) -->
+<style>
+  .absorb-footer {
+    background-color: {{ section.settings.footer_background_color | default: '#000' }};
+    color: #fff;
+    padding: 60px 20px;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .absorb-footer .footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1.5fr; /* Left, Center, Right */
+    gap: 40px;
+  }
+
+  /* LEFT COLUMN: Logo + Brand + Disclaimer + Social (Left) */
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 16px;
+  }
+  .footer-brand {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .footer-disclaimer {
+    font-size: 12px;
+    color: #ccc;
+    margin: 20px 0;
+    line-height: 1.4;
+    font-weight: 400; /* Regular weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.2s ease;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500; /* Medium weight */
+  }
+  .footer-social a:hover {
+    opacity: 0.7;
+  }
+
+  /* CENTER COLUMN: Three Columns – Link Group 1, Support, and Socials */
+  .footer-center {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .link-group-title {
+    font-size: 16px;
+    font-weight: 700; /* Bold weight */
+    margin-bottom: 10px;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .link-group a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
+  .link-group a:hover {
+    opacity: 0.7;
+  }
+  /* Socials Column inside Center – Vertical List with Icons */
+  .footer-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-socials .socials-title {
+    font-size: 16px;
+    font-weight: 700; /* Bold weight */
+    margin-bottom: 10px;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .footer-socials .socials-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-socials .socials-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
+  .footer-socials .socials-link:hover {
+    opacity: 0.7;
+  }
+  .footer-socials .socials-link img {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+  }
+
+  /* RIGHT COLUMN: Newsletter & Contact Info */
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .newsletter-title {
+    font-size: 16px;
+    font-weight: 700; /* Bold weight */
+    margin-bottom: 10px;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: center; /* Ensures vertical alignment */
+  width: 100%;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  height: 48px; /* Increased to ensure full match with button */
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #111;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures height includes padding */
+  font-family: 'Satoshi', sans-serif;
+}
+
+.newsletter-form input::placeholder {
+  color: #666;
+  font-family: 'Satoshi', sans-serif;
+}
+
+/* Updated Subscribe Button to Match Input */
+.newsletter-form button {
+  height: 48px; /* Matches input field */
+  padding: 0 20px; /* Ensures no extra vertical padding */
+  border: none;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700; /* Bold weight */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  box-sizing: border-box; /* Ensures padding doesn't affect height */
+  font-family: 'Satoshi', sans-serif;
+}
+
+.newsletter-form button:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+  .footer-contact {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
+  .footer-contact a {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .footer-contact a:hover {
+    opacity: 0.7;
+  }
+
+  /* SUB-FOOTER (Optional) */
+  .sub-footer {
+    margin-top: 40px;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .absorb-footer .footer-container {
+      grid-template-columns: 1fr 1fr; /* Left & Right; center stacks */
+    }
+    .footer-center {
+      grid-template-columns: 1fr; /* Stack center items vertically */
+    }
+    .footer-right {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 600px) {
+    .absorb-footer .footer-container {
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+  }
+</style>
+
+<footer class="absorb-footer" id="footer-custom-{{ section.id }}">
+  <div class="footer-container">
+    
+    <!-- LEFT COLUMN -->
+    <div class="footer-left">
+      <!-- Logo Image -->
+      {% if section.settings.logo_image != blank %}
+        <img
+          class="footer-logo"
+          src="{{ section.settings.logo_image | image_url: width: 300 }}"
+          alt="{{ section.settings.brand_name | escape }}"
+        >
+      {% endif %}
+      <!-- Brand Name -->
+      {% if section.settings.brand_name != blank %}
+        <div class="footer-brand">{{ section.settings.brand_name }}</div>
+      {% endif %}
+      <!-- Disclaimer Text -->
+      {% if section.settings.disclaimer_text != blank %}
+        <div class="footer-disclaimer">
+          {{ section.settings.disclaimer_text }}
+        </div>
+      {% endif %}
+      <!-- Left Column Social Icons -->
+      <div class="footer-social">
+        {% if section.settings.tiktok_link %}
+          <a href="{{ section.settings.tiktok_link }}" target="_blank" aria-label="TikTok">TikTok</a>
+        {% endif %}
+        {% if section.settings.instagram_link %}
+          <a href="{{ section.settings.instagram_link }}" target="_blank" aria-label="Instagram">Instagram</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- CENTER COLUMN -->
+    <div class="footer-center">
+      <!-- Link Group 1 -->
+      <div class="link-group">
+        {% if section.settings.link_group_1_title %}
+          <div class="link-group-title">{{ section.settings.link_group_1_title }}</div>
+        {% endif %}
+        {% if section.settings.link_group_1_link_1_label %}
+          <a href="{{ section.settings.link_group_1_link_1_url }}">{{ section.settings.link_group_1_link_1_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_1_link_2_label %}
+          <a href="{{ section.settings.link_group_1_link_2_url }}">{{ section.settings.link_group_1_link_2_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_1_link_3_label %}
+          <a href="{{ section.settings.link_group_1_link_3_url }}">{{ section.settings.link_group_1_link_3_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_1_link_4_label %}
+          <a href="{{ section.settings.link_group_1_link_4_url }}">{{ section.settings.link_group_1_link_4_label }}</a>
+        {% endif %}
+      </div>
+      <!-- Link Group 2 (Support) -->
+      <div class="link-group">
+        {% if section.settings.link_group_2_title %}
+          <div class="link-group-title">{{ section.settings.link_group_2_title }}</div>
+        {% endif %}
+        {% if section.settings.link_group_2_link_1_label %}
+          <a href="{{ section.settings.link_group_2_link_1_url }}">{{ section.settings.link_group_2_link_1_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_2_link_2_label %}
+          <a href="{{ section.settings.link_group_2_link_2_url }}">{{ section.settings.link_group_2_link_2_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_2_link_3_label %}
+          <a href="{{ section.settings.link_group_2_link_3_url }}">{{ section.settings.link_group_2_link_3_label }}</a>
+        {% endif %}
+        {% if section.settings.link_group_2_link_4_label %}
+          <a href="{{ section.settings.link_group_2_link_4_url }}">{{ section.settings.link_group_2_link_4_label }}</a>
+        {% endif %}
+      </div>
+      <!-- Socials Column -->
+      <div class="footer-socials">
+        <div class="socials-title">Socials</div>
+        <div class="socials-links">
+          {% if section.settings.socials_x_link != blank %}
+            <a class="socials-link" href="{{ section.settings.socials_x_link }}" target="_blank" aria-label="X">
+              {% if section.settings.socials_x_icon != blank %}
+                <img src="{{ section.settings.socials_x_icon | image_url: width: 18 }}" alt="X">
+              {% else %}
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" alt="X">
+              {% endif %}
+              <span>X</span>
+            </a>
+          {% endif %}
+          {% if section.settings.socials_instagram_link_right != blank %}
+            <a class="socials-link" href="{{ section.settings.socials_instagram_link_right }}" target="_blank" aria-label="Instagram">
+              {% if section.settings.socials_instagram_icon_right != blank %}
+                <img src="{{ section.settings.socials_instagram_icon_right | image_url: width: 18 }}" alt="Instagram">
+              {% else %}
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png" alt="Instagram">
+              {% endif %}
+              <span>Instagram</span>
+            </a>
+          {% endif %}
+          {% if section.settings.socials_youtube_link != blank %}
+            <a class="socials-link" href="{{ section.settings.socials_youtube_link }}" target="_blank" aria-label="YouTube">
+              {% if section.settings.socials_youtube_icon != blank %}
+                <img src="{{ section.settings.socials_youtube_icon | image_url: width: 18 }}" alt="YouTube">
+              {% else %}
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube">
+              {% endif %}
+              <span>YouTube</span>
+            </a>
+          {% endif %}
+          {% if section.settings.socials_tiktok_link_right != blank %}
+            <a class="socials-link" href="{{ section.settings.socials_tiktok_link_right }}" target="_blank" aria-label="TikTok">
+              {% if section.settings.socials_tiktok_icon_right != blank %}
+                <img src="{{ section.settings.socials_tiktok_icon_right | image_url: width: 18 }}" alt="TikTok">
+              {% else %}
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/tiktok-white-icon.png" alt="TikTok">
+              {% endif %}
+              <span>TikTok</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="footer-right">
+      <!-- Newsletter -->
+      {% if section.settings.newsletter_heading %}
+        <div class="newsletter-title">{{ section.settings.newsletter_heading }}</div>
+      {% endif %}
+      <form method="post" action="/contact#ContactFooter" class="newsletter-form" id="ContactFooter">
+        <input type="hidden" name="form_type" value="customer" />
+        <input type="email" name="contact[email]" placeholder="Enter your email" required />
+        <button type="submit">
+          {{ section.settings.newsletter_button_text | default: 'Subscribe' }}
+        </button>
+      </form>
+      <!-- Contact Info -->
+      <div class="footer-contact">
+        {% if section.settings.phone_number %}
+          <div>{{ section.settings.phone_number }}</div>
+        {% endif %}
+        {% if section.settings.email_address %}
+          <div>
+            <a href="mailto:{{ section.settings.email_address }}">
+              {{ section.settings.email_address }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+  <!-- OPTIONAL SUB-FOOTER -->
+  {% if section.settings.sub_footer_text != blank %}
+    <div class="sub-footer">
+      {{ section.settings.sub_footer_text }}
+    </div>
+  {% endif %}
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer AbsorbMore",
+  "settings": [
+    {
+      "type": "color",
+      "id": "footer_background_color",
+      "label": "Footer Background Color",
+      "default": "#000",
+      "info": "Choose the background color for the footer."
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Footer Logo Image",
+      "info": "Logo displayed above the brand name."
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "The Absorption Company."
+    },
+    {
+      "type": "text",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text",
+      "default": "These products and statements have not been evaluated by the Food and Drug Administration..."
+    },
+    {
+      "type": "url",
+      "id": "tiktok_link",
+      "label": "TikTok Link (Left Column)"
+    },
+    {
+      "type": "url",
+      "id": "instagram_link",
+      "label": "Instagram Link (Left Column)"
+    },
+    {
+      "type": "text",
+      "id": "link_group_1_title",
+      "label": "Link Group 1 Title",
+      "default": "Science"
+    },
+    {
+      "type": "url",
+      "id": "link_group_1_link_1_url",
+      "label": "Group 1 - Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_1_link_1_label",
+      "label": "Group 1 - Link 1 Label",
+      "default": "Science"
+    },
+    {
+      "type": "url",
+      "id": "link_group_1_link_2_url",
+      "label": "Group 1 - Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_1_link_2_label",
+      "label": "Group 1 - Link 2 Label",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "link_group_1_link_3_url",
+      "label": "Group 1 - Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_1_link_3_label",
+      "label": "Group 1 - Link 3 Label",
+      "default": "Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "link_group_1_link_4_url",
+      "label": "Group 1 - Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_1_link_4_label",
+      "label": "Group 1 - Link 4 Label",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "text",
+      "id": "link_group_2_title",
+      "label": "Link Group 2 Title",
+      "default": "Support"
+    },
+    {
+      "type": "url",
+      "id": "link_group_2_link_1_url",
+      "label": "Group 2 - Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_2_link_1_label",
+      "label": "Group 2 - Link 1 Label",
+      "default": "Account"
+    },
+    {
+      "type": "url",
+      "id": "link_group_2_link_2_url",
+      "label": "Group 2 - Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_2_link_2_label",
+      "label": "Group 2 - Link 2 Label",
+      "default": "Shipping & Returns"
+    },
+    {
+      "type": "url",
+      "id": "link_group_2_link_3_url",
+      "label": "Group 2 - Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_2_link_3_label",
+      "label": "Group 2 - Link 3 Label",
+      "default": "FAQ"
+    },
+    {
+      "type": "url",
+      "id": "link_group_2_link_4_url",
+      "label": "Group 2 - Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_group_2_link_4_label",
+      "label": "Group 2 - Link 4 Label",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading",
+      "default": "Stay connected."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_text",
+      "label": "Newsletter Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "863.222.0997"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "help@absorbhome.com"
+    },
+    {
+      "type": "text",
+      "id": "sub_footer_text",
+      "label": "Sub-Footer Text (Optional)",
+      "default": "© 2025 Absorb Co."
+    },
+    {
+      "type": "url",
+      "id": "socials_x_link",
+      "label": "X (formerly Twitter) Link (Socials Column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "socials_x_icon",
+      "label": "X Icon"
+    },
+    {
+      "type": "url",
+      "id": "socials_instagram_link_right",
+      "label": "Instagram Link (Socials Column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "socials_instagram_icon_right",
+      "label": "Instagram Icon"
+    },
+    {
+      "type": "url",
+      "id": "socials_youtube_link",
+      "label": "YouTube Link (Socials Column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "socials_youtube_icon",
+      "label": "YouTube Icon"
+    },
+    {
+      "type": "url",
+      "id": "socials_tiktok_link_right",
+      "label": "TikTok Link (Socials Column)"
+    },
+    {
+      "type": "image_picker",
+      "id": "socials_tiktok_icon_right",
+      "label": "TikTok Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AbsorbMore Style Footer"
+    }
+  ]
+}
+{% endschema %}
+<!-- END AbsorbMore-Style Footer with Redesigned Center, Vertical Socials & Image Icons (Updated Subscribe Button) -->

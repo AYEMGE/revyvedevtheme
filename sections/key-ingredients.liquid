@@ -1,0 +1,299 @@
+{% comment %}
+  ----------------------------------------------------------------------------
+  KEY INGREDIENTS SECTION (6 Accordion Rows + Square Image)
+  ----------------------------------------------------------------------------
+  - Minimal two-column layout:
+    * Left: 6 accordion rows (Name + Detailed Info + optional Ingredient Image)
+    * Right: A square main image (400x400).
+  - Uses {{ block.settings.expanded_text | newline_to_br }} so line breaks
+    and simple HTML (e.g. <strong>) appear on the front end.
+  ----------------------------------------------------------------------------
+{% endcomment %}
+
+<style>
+.two-col-ingredients {
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.two-col-ingredients .ingredients-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* stacks on mobile */
+  gap: 40px;
+}
+
+/* Left column: Title, Subtitle, Accordion */
+.two-col-ingredients .left-col {
+  flex: 1 1 500px;
+}
+
+/* Right column: Main image (square) */
+.two-col-ingredients .right-col {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.two-col-ingredients .right-col img {
+  width: 400px;   
+  height: 400px;  
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Section Title & Subtitle */
+.two-col-ingredients .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  font-family: 'Satoshi', sans-serif;
+}
+.two-col-ingredients .section-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-weight: 500; /* Medium weight */
+}
+
+/* Accordion styles */
+.ingredients-accordion .accordion-item {
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+  position: relative;
+}
+.ingredients-accordion .accordion-item:last-child {
+  border-bottom: 1px solid #eee;
+}
+.accordion-toggle {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  color: #333;
+  font-weight: 700; /* Bold weight */
+  font-family: 'Satoshi', sans-serif;
+}
+.accordion-toggle:focus {
+  outline: none;
+}
+.accordion-toggle .toggle-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+/* Hidden content area */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  margin-top: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 0;
+  font-weight: 400; /* Regular weight */
+  font-family: 'Satoshi', sans-serif;
+}
+/* When open, show content & rotate icon */
+.accordion-item.open .accordion-content {
+  max-height: 999px; /* large enough for multiple paragraphs */
+  margin-top: 10px;
+  padding: 0 0 10px;
+}
+.accordion-item.open .toggle-icon {
+  transform: rotate(45deg);
+}
+</style>
+
+<section class="two-col-ingredients">
+  <div class="ingredients-container">
+    <!-- Left Column: Title, Subtitle, Accordion -->
+    <div class="left-col">
+      <h2 class="section-title">{{ section.settings.section_title }}</h2>
+      <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+      
+      <div class="ingredients-accordion">
+        {% for block in section.blocks %}
+          <div class="accordion-item">
+            <!-- Accordion Toggle -->
+            <button class="accordion-toggle" type="button">
+              <span>{{ block.settings.title }}</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <!-- Hidden Content -->
+            <div class="accordion-content">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | img_url: 'master' }}"
+                  alt="{{ block.settings.image_alt | escape }}"
+                  style="max-width: 100%; margin-bottom: 10px; border-radius: 6px;"
+                >
+              {% endif %}
+              {{ block.settings.expanded_text | newline_to_br }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Right Column: Main Image (square) -->
+    <div class="right-col">
+      {% if section.settings.main_image != blank %}
+        <img 
+          src="{{ section.settings.main_image | img_url: 'master' }}" 
+          alt="{{ section.settings.main_image_alt | escape }}"
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.accordion-item');
+  items.forEach(item => {
+    const toggle = item.querySelector('.accordion-toggle');
+    toggle.addEventListener('click', () => {
+      // Toggle the current item
+      item.classList.toggle('open');
+      // If you only want one open at a time, uncomment:
+      // items.forEach(i => { if(i !== item) i.classList.remove('open'); });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Key Ingredients Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Key Ingredients"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Discover our powerful blend of natural ingredients designed to help your body recover fast and feel its best."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image (Right Column)"
+    },
+    {
+      "type": "text",
+      "id": "main_image_alt",
+      "label": "Main Image Alt Text",
+      "default": "Section main image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "key_ing_block",
+      "name": "Key Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Name",
+          "default": "Enter ingredient name"
+        },
+        {
+          "type": "textarea",
+          "id": "expanded_text",
+          "label": "Detailed Information",
+          "default": "Enter detailed information"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ingredient Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Ingredient Image Alt Text",
+          "default": "Ingredient image alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Key Ingredients Section",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "DIHYDROMYRICETIN (DHM)",
+            "expanded_text": "Herb that counteracts alcohol intoxication and reduces alcohol withdrawal symptoms.\n\n<strong>Benefits:</strong> Helps protect your liver from adverse effects.",
+            "image": "",
+            "image_alt": ""
+          }
+        },
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "MILK THISTLE",
+            "expanded_text": "Natural antioxidant that protects liver cells &amp; function, aids in detoxification, and reduces inflammation.\n\nUse <strong>bold text</strong> here if needed.",
+            "image": "",
+            "image_alt": ""
+          }
+        },
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "GINGER EXTRACT",
+            "expanded_text": "Root extract that helps ease nausea and soothes digestion to alleviate stomach discomfort.",
+            "image": "",
+            "image_alt": ""
+          }
+        },
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "N-ACETYL-CYSTEINE",
+            "expanded_text": "Works synergistically with DHM to neutralize toxic compounds created by your liver and increase metabolism.\n\nMultiple paragraphs or line breaks are allowed.\nJust press Enter in the editor.",
+            "image": "",
+            "image_alt": ""
+          }
+        },
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "ELECTROLYTES",
+            "expanded_text": "<strong>Sodium Chloride:</strong> Restores fluid balance.\n\n<strong>Magnesium Glycinate:</strong> Helps muscle health, energy production, and sleep.\n\n<strong>Potassium Chloride:</strong> Prevents cramping and supports nerve function.",
+            "image": "",
+            "image_alt": ""
+          }
+        },
+        {
+          "type": "key_ing_block",
+          "settings": {
+            "title": "VITAMINS",
+            "expanded_text": "<strong>Vitamin B Complex:</strong> Fights nausea, fatigue, anxiety. Promotes energy and blood cell health.\n\n<strong>Vitamin C:</strong> An antioxidant that boosts the immune system and reduces oxidative stress.",
+            "image": "",
+            "image_alt": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

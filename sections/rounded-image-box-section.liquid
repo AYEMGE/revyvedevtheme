@@ -1,0 +1,135 @@
+{% comment %}
+  ROUNDED IMAGE BOX SECTION WITH BUTTON
+  - Displays a large, rounded-corner container with a white border and a background image.
+  - Includes a button in the bottom-left corner with an option for a transparent fill.
+  - Adds a media query to reduce side padding on mobile, making the white borders less thick.
+{% endcomment %}
+
+<section id="rounded-image-box-section" class="rounded-image-box-section">
+  <div 
+    class="image-box-container"
+    style="background-image: url('{{ section.settings.section_image | img_url: 'master' }}');"
+  >
+    {% if section.settings.button_label != blank %}
+      <div class="button-container">
+        <a 
+          href="{{ section.settings.button_link | default: '#' }}" 
+          class="image-box-button {% if section.settings.button_transparent %}transparent{% endif %}"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    /* Import Satoshi font */
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+
+    /* White background around the container, creating a "frame" */
+    .rounded-image-box-section {
+      background-color: #fff;
+      margin: 0;
+      padding: 40px; /* Default large padding for desktop */
+      font-family: 'Satoshi', sans-serif;
+    }
+
+    /* Full-width container with white border, rounded corners, and an image background */
+    .image-box-container {
+      position: relative;
+      width: 100%;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      min-height: 80vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-sizing: border-box;
+    }
+
+    /* Button container at bottom-left corner */
+    .button-container {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    /* Default button style */
+    .image-box-button {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.2s ease, color 0.2s ease;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+    }
+
+    .image-box-button:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Transparent button style when enabled */
+    .image-box-button.transparent {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+    .image-box-button.transparent:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* -- Mobile adjustments -- */
+    @media (max-width: 767px) {
+      /* Reduce side padding to make borders thinner on smaller screens */
+      .rounded-image-box-section {
+        padding: 20px; /* Adjust this value as needed (e.g. 10px) */
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Rounded Image Box Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_transparent",
+      "label": "Transparent Button",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rounded Image Box Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

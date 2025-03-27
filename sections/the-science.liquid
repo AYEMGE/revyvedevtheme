@@ -1,0 +1,355 @@
+{% comment %}
+  ----------------------------------------------------------------------------
+  THE SCIENCE SECTION FOR REVYVE (Updated)
+  ----------------------------------------------------------------------------
+  - Removed the "Key Ingredients" block.
+  - Only displays: Our Research, How It Works, and Benefits.
+  ----------------------------------------------------------------------------
+{% endcomment %}
+
+<style>
+  /* Base section styles */
+  .rev-science-section {
+    margin: 0;
+    padding: 60px 20px;
+    background-color: #f9fafb;
+    font-family: 'Satoshi', sans-serif;
+    color: #333;
+  }
+  .rev-science-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .rev-science-heading {
+    margin-bottom: 40px;
+  }
+  .rev-science-heading h2 {
+    text-align: left;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .rev-science-heading p {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-top: 0;
+    font-weight: 500; /* Medium weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  .rev-science-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 768px) {
+    .rev-science-content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .rev-science-item {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 0 20px 30px;
+    text-align: left;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
+    opacity: 0;
+    transform: translateY(30px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .rev-science-item:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .rev-science-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .rev-science-image {
+    margin: -30px -20px 20px;
+    width: calc(100% + 40px);
+    aspect-ratio: 735 / 810;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #ccc;
+  }
+  .rev-science-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .rev-science-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 700; /* Bold weight */
+    color: #333;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .rev-science-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400; /* Regular weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  .rev-science-toggle {
+    display: inline-block;
+    background: none;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500; /* Medium weight */
+    text-decoration: underline;
+    border: none;
+    padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .rev-science-toggle:hover {
+    color: #555;
+    text-decoration: underline;
+  }
+  .rev-science-expanded {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.95rem;
+    background-color: #fefefe;
+    padding: 0 10px;
+    border-left: 3px solid #eee;
+    border-radius: 4px;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
+  .rev-science-expanded.open {
+    max-height: 999px;
+    opacity: 1;
+  }
+  .rev-science-expanded p {
+    margin: 15px 0;
+  }
+</style>
+
+<section class="rev-science-section">
+  <div class="rev-science-container">
+    <!-- Heading -->
+    <div class="rev-science-heading">
+      <h2>{{ section.settings.main_title }}</h2>
+      {% if section.settings.main_subtitle != blank %}
+        <p>{{ section.settings.main_subtitle }}</p>
+      {% endif %}
+    </div>
+    <!-- Blocks: Only render non-ingredients blocks -->
+    <div class="rev-science-content">
+      {% for block in section.blocks %}
+        {% if block.type != 'ingredients_block' %}
+          <div class="rev-science-item">
+            {% if block.settings.image != blank %}
+              <div class="rev-science-image">
+                <img 
+                  src="{{ block.settings.image | img_url: 'master' }}" 
+                  alt="{{ block.settings.image_alt | escape }}"
+                >
+              </div>
+            {% endif %}
+            <div class="rev-science-text">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+            {% if block.settings.expanded_text != blank %}
+              <button type="button" class="rev-science-toggle">Learn More</button>
+              <div class="rev-science-expanded">
+                <p>{{ block.settings.expanded_text }}</p>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.rev-science-item');
+  const observerOptions = {
+    root: null,
+    threshold: 0.1
+  };
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  items.forEach(item => {
+    observer.observe(item);
+  });
+  const toggles = document.querySelectorAll('.rev-science-toggle');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const parentItem = toggle.closest('.rev-science-item');
+      const expanded = parentItem.querySelector('.rev-science-expanded');
+      if (expanded) {
+        expanded.classList.toggle('open');
+        toggle.innerText = expanded.classList.contains('open') ? 'Show Less' : 'Learn More';
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "The Science Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "The Science Behind REVYVE"
+    },
+    {
+      "type": "textarea",
+      "id": "main_subtitle",
+      "label": "Subtitle",
+      "default": "Discover the research that makes REVYVE the ultimate hangover recovery supplement."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "science_block",
+      "name": "Our Research",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Our Research"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Block Text",
+          "default": "REVYVE is formulated based on robust scientific research that pinpoints the root causes of hangover symptoms. Our formula helps mitigate dehydration and oxidative stress."
+        },
+        {
+          "type": "textarea",
+          "id": "expanded_text",
+          "label": "More Info (Expanded)",
+          "default": "In-depth details about the research: we analyzed thousands of data points from clinical trials, focusing on how certain nutrients can replenish your system. Our proprietary blend is backed by a peer-reviewed study demonstrating quicker recovery times."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "Scientific research image"
+        }
+      ]
+    },
+    {
+      "type": "function_block",
+      "name": "How It Works",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "How It Works"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Block Text",
+          "default": "Our supplement works by replenishing vital nutrients and antioxidants lost during alcohol consumption. The carefully selected ingredients support rapid recovery by rehydrating and restoring balance."
+        },
+        {
+          "type": "textarea",
+          "id": "expanded_text",
+          "label": "More Info (Expanded)",
+          "default": "REVYVE's specialized formula uses a ratio of electrolytes, vitamins, and herbal extracts to accelerate your body's rehydration. The synergy between antioxidants and adaptogens also helps combat oxidative stress and inflammation."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "Mechanism illustration"
+        }
+      ]
+    },
+    {
+      "type": "benefits_block",
+      "name": "Benefits",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Benefits"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Block Text",
+          "default": "REVYVE offers improved energy, clarity, and overall wellness after a night of drinking."
+        },
+        {
+          "type": "textarea",
+          "id": "expanded_text",
+          "label": "More Info (Expanded)",
+          "default": "Not only does REVYVE target hangover symptoms, but it also helps maintain healthy immune function and day-to-day wellness. Our carefully selected nutrients and antioxidants provide a balanced approach to recovery."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "default": "People feeling great"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "The Science Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

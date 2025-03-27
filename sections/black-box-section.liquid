@@ -1,0 +1,232 @@
+{% comment %}
+  BLACK BOX SECTION
+  - Desktop: unchanged, side-by-side layout with 50/50 columns, min-height 80vh.
+  - Mobile: side-by-side layout remains, image at 40% width, no forced min-height, slightly smaller text.
+{% endcomment %}
+
+<section id="black-box-section" class="black-box-section">
+  <div class="black-box-container">
+    <!-- Section Heading -->
+    <h2 class="section-heading">
+      {{ section.settings.section_heading }}
+    </h2>
+
+    <div class="content-wrapper">
+      <!-- Left Image -->
+      <div class="left-image">
+        {% if section.settings.section_image != blank %}
+          <img 
+            src="{{ section.settings.section_image | img_url: 'x400' }}" 
+            alt="Section Image"
+          />
+        {% endif %}
+      </div>
+
+      <!-- Right Benefits -->
+      <div class="right-benefits">
+        {% for block in section.blocks %}
+          {% if block.type == 'benefit' %}
+            <div class="benefit-item">
+              {% if block.settings.icon != blank %}
+                <div class="benefit-icon">
+                  <img 
+                    src="{{ block.settings.icon | img_url: 'x50' }}" 
+                    alt="Benefit Icon"
+                  />
+                </div>
+              {% endif %}
+              <h3 class="benefit-title">{{ block.settings.title }}</h3>
+              {% if block.settings.description != blank %}
+                <p class="benefit-description">{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* White background behind the black box, with padding to create a white frame */
+    .black-box-section {
+      background-color: #fff;
+      margin: 0;
+      padding: 40px;
+    }
+
+    /* Black box with white border, 25px corners, min-height 80vh on desktop */
+    .black-box-container {
+      width: 100%;
+      background-color: #000;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      color: #fff;
+      box-sizing: border-box;
+      padding: 40px;
+      min-height: 80vh; /* Desktop: fill more screen height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Heading styling (desktop) */
+    .section-heading {
+      text-align: center;
+      margin: 20px 0 40px 0;
+      font-size: 2.64em; /* 20% bigger than 2.2em */
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    /* Desktop: image left, benefits right */
+    .content-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .left-image {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .right-benefits {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Each benefit item is centered, with bigger text */
+    .benefit-item {
+      text-align: center; 
+      margin-bottom: 20px;
+      max-width: 400px;
+    }
+
+    .benefit-icon {
+      margin-bottom: 8px;
+    }
+
+    .benefit-title {
+      margin: 0 0 10px 0;
+      font-size: 1.82em; /* 30% bigger than 1.4em */
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .benefit-description {
+      margin: 0;
+      font-size: 1.56em; /* 30% bigger than 1.2em */
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    /* -- Mobile Adjustments -- */
+    @media (max-width: 767px) {
+      /* Keep a thinner white frame */
+      .black-box-section {
+        padding: 20px;
+      }
+
+      /* Remove forced min-height so box sizes to content */
+      .black-box-container {
+        border-radius: 15px;
+        padding: 20px;
+        min-height: auto;
+      }
+
+      /* Keep side-by-side but adjust columns so image is smaller */
+      .left-image {
+        width: 40%;
+      }
+      .right-benefits {
+        width: 60%;
+      }
+
+      /* Slightly reduce font sizes so text fits better */
+      .section-heading {
+        font-size: 2em;
+      }
+      .benefit-title {
+        font-size: 1.5em;
+      }
+      .benefit-description {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Black Box Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Get the hydration your body needs and deserves."
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Left Side Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "L-Citrulline & L-Arginine"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Your benefit description."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Black Box Section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

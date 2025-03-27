@@ -1,0 +1,213 @@
+{% schema %}
+  {
+    "name": "Featured Variants",
+    "settings": [
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Select Product"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Featured Flavors"
+      },
+      {
+        "type": "image_picker",
+        "id": "lemon_lime_hover_image",
+        "label": "Lemon/Lime Hover Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "raspberry_hover_image",
+        "label": "Raspberry Hover Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Variants",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <style>
+    /* Container and overall styling */
+    .featured-variants-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #ffffff;
+      font-family: 'Satoshi', sans-serif;
+    }
+  
+    .featured-variants-section h2 {
+      text-align: left;
+      margin-bottom: 30px;
+      font-weight: 700; /* Bold weight */
+      letter-spacing: -0.02em;
+      font-family: 'Satoshi', sans-serif;
+    }
+  
+    .featured-variants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+  
+    .variant-item {
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+  
+    /* Container for both default and hover images */
+    .variant-images {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden; /* Ensures images won't overflow the container */
+    }
+  
+    /* Default (non-hover) image styling */
+    .default-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: opacity 0.3s ease;
+    }
+  
+    /* Hover image styling (initially hidden) */
+    .hover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      border-radius: 8px; /* Same rounded corners as default image */
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  
+    /* Show hover image on .variant-images hover; hide default image */
+    .variant-images:hover .default-img {
+      opacity: 0;
+    }
+    .variant-images:hover .hover-img {
+      opacity: 1;
+      transform: scale(1.03); /* Subtle zoom-in on hover image */
+    }
+  
+    .variant-item h3 {
+      font-size: 1.5rem;
+      color: #333333;
+      margin: 10px 0;
+      font-weight: 700; /* Bold weight */
+      letter-spacing: -0.02em;
+      font-family: 'Satoshi', sans-serif;
+    }
+  
+    .flavor-name {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      font-weight: 400; /* Regular weight */
+      font-family: 'Satoshi', sans-serif;
+    }
+  
+    .variant-item p {
+      font-size: 1.2rem;
+      color: #666666;
+      margin: 5px 0;
+      font-weight: 500; /* Medium weight */
+      font-family: 'Satoshi', sans-serif;
+    }
+  
+    .variant-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+  
+  <div class="featured-variants-section">
+    <h2>{{ section.settings.section_title }}</h2>
+    <div class="featured-variants-grid">
+      {% if section.settings.featured_product %}
+        {% assign product = section.settings.featured_product %}
+        {% assign shown_flavors = '' | split: ',' %}
+        {% for variant in product.variants %}
+          {% unless shown_flavors contains variant.option1 %}
+            {% if variant.option1 == "Lemon/Lime" or variant.option1 == "Raspberry" %}
+              {% if variant.option2 == "6" %}
+                <div class="variant-item">
+                  <a href="{{ product.url }}?variant={{ variant.id }}">
+                    <div class="variant-images">
+                      {% comment %}
+                        Default (non-hover) image
+                        Use variant.image if it exists, otherwise fallback to product.featured_image
+                      {% endcomment %}
+                      {% if variant.image %}
+                        <img
+                          class="default-img"
+                          src="{{ variant.image | img_url: '400x400' }}"
+                          alt="{{ variant.title }}"
+                        >
+                      {% else %}
+                        <img
+                          class="default-img"
+                          src="{{ product.featured_image | img_url: '400x400' }}"
+                          alt="{{ variant.title }}"
+                        >
+                      {% endif %}
+  
+                      {% comment %}
+                        Hover image:
+                        - If flavor is Lemon/Lime and a lemon_lime_hover_image is set, use it.
+                        - If flavor is Raspberry and a raspberry_hover_image is set, use it.
+                        - Otherwise, no hover image is displayed.
+                      {% endcomment %}
+                      {% if variant.option1 == "Lemon/Lime" and section.settings.lemon_lime_hover_image %}
+                        <img
+                          class="hover-img"
+                          src="{{ section.settings.lemon_lime_hover_image | img_url: '400x400' }}"
+                          alt="Lemon/Lime Hover Image"
+                        >
+                      {% elsif variant.option1 == "Raspberry" and section.settings.raspberry_hover_image %}
+                        <img
+                          class="hover-img"
+                          src="{{ section.settings.raspberry_hover_image | img_url: '400x400' }}"
+                          alt="Raspberry Hover Image"
+                        >
+                      {% endif %}
+                    </div>
+  
+                    <!-- Product title -->
+                    <h3>REVYVE – Night Out Recovery Mix</h3>
+  
+                    <!-- Flavor name in color -->
+                    {% if variant.option1 == "Lemon/Lime" %}
+                      <p class="flavor-name" style="color: #91be61;">{{ variant.option1 }}</p>
+                    {% elsif variant.option1 == "Raspberry" %}
+                      <p class="flavor-name" style="color: #a33057;">{{ variant.option1 }}</p>
+                    {% endif %}
+  
+                    <!-- Price -->
+                    <p>{{ variant.price | money }}</p>
+                  </a>
+                </div>
+                {% assign shown_flavors = shown_flavors | push: variant.option1 %}
+              {% endif %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+      {% else %}
+        <p>Please select a product in the section settings.</p>
+      {% endif %}
+    </div>
+  </div>
+  

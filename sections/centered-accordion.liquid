@@ -1,0 +1,302 @@
+{% comment %}
+  ===================================================
+  CENTERED ACCORDION (AUTO LEFT/RIGHT, 4 max)
+  ===================================================
+
+  - Displays an image or video in the center.
+  - Allows up to 4 accordion blocks total.
+  - 1st & 3rd blocks automatically go left, 2nd & 4th blocks go right (based on order).
+  - Each block has a title and up to 5 dropdown items.
+  - Only one dropdown is open at a time.
+  - On mobile, columns stack vertically.
+{% endcomment %}
+
+<section id="centered-accordion-section" style="padding: 60px 0;">
+  <style>
+    /* Import Satoshi font */
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+    
+    /* Apply Satoshi font to all elements in the section */
+    #centered-accordion-section {
+      font-family: 'Satoshi', sans-serif;
+    }
+    
+    #centered-accordion-section h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    #centered-accordion-section .accordion-toggle span {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 500;
+    }
+    
+    #centered-accordion-section .accordion-content {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 400;
+    }
+    
+    #centered-accordion-section .toggle-icon {
+      font-family: 'Satoshi', sans-serif;
+    }
+  </style>
+
+  <!-- Capture left side blocks (1st, 3rd) -->
+  {% capture left_accordions %}
+    {% for block in section.blocks %}
+      {% assign index_mod = forloop.index0 | modulo: 2 %}
+      {% if index_mod == 0 %}
+        <!-- 0-based index is even => 1st, 3rd, etc. go LEFT -->
+        <div class="accordion-block" style="margin-bottom: 40px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">
+            {{ block.settings.title }}
+          </h3>
+          <div class="accordion-items">
+            {% for i in (1..5) %}
+              {% assign label_key = 'dropdown_' | append: i | append: '_label' %}
+              {% assign content_key = 'dropdown_' | append: i | append: '_content' %}
+              {% assign label = block.settings[label_key] %}
+              {% assign content = block.settings[content_key] %}
+              {% if label != blank %}
+                <div class="accordion-item" style="margin-bottom: 10px;">
+                  <div class="accordion-toggle" style="
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid #ccc;
+                    padding: 10px 0;
+                  ">
+                    <span>{{ label }}</span>
+                    <span class="toggle-icon">+</span>
+                  </div>
+                  <div class="accordion-content" style="display: none; padding: 10px 0;">
+                    {{ content }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+  <!-- Capture right side blocks (2nd, 4th) -->
+  {% capture right_accordions %}
+    {% for block in section.blocks %}
+      {% assign index_mod = forloop.index0 | modulo: 2 %}
+      {% if index_mod == 1 %}
+        <!-- 0-based index is odd => 2nd, 4th, etc. go RIGHT -->
+        <div class="accordion-block" style="margin-bottom: 40px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">
+            {{ block.settings.title }}
+          </h3>
+          <div class="accordion-items">
+            {% for i in (1..5) %}
+              {% assign label_key = 'dropdown_' | append: i | append: '_label' %}
+              {% assign content_key = 'dropdown_' | append: i | append: '_content' %}
+              {% assign label = block.settings[label_key] %}
+              {% assign content = block.settings[content_key] %}
+              {% if label != blank %}
+                <div class="accordion-item" style="margin-bottom: 10px;">
+                  <div class="accordion-toggle" style="
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid #ccc;
+                    padding: 10px 0;
+                  ">
+                    <span>{{ label }}</span>
+                    <span class="toggle-icon">+</span>
+                  </div>
+                  <div class="accordion-content" style="display: none; padding: 10px 0;">
+                    {{ content }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+  <!-- Main container with extra left/right padding -->
+  <div class="three-column" style="
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  ">
+    <!-- LEFT SIDE (Blocks 1 & 3) -->
+    <div class="left-side" style="width: 30%;">
+      {{ left_accordions }}
+    </div>
+
+    <!-- CENTER IMAGE/VIDEO -->
+    <div class="center-image" style="width: 30%; text-align: center;">
+      {% if section.settings.center_video != blank %}
+        <video autoplay loop muted playsinline style="max-width: 100%; height: auto; border-radius: 12px;">
+          <source src="{{ section.settings.center_video }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% elsif section.settings.center_image %}
+        <img
+          src="{{ section.settings.center_image | img_url: '500x' }}"
+          alt="Center Image"
+          style="max-width: 100%; height: auto; border-radius: 12px;"
+        />
+      {% endif %}
+    </div>
+
+    <!-- RIGHT SIDE (Blocks 2 & 4) -->
+    <div class="right-side" style="width: 30%;">
+      {{ right_accordions }}
+    </div>
+  </div>
+
+  <style>
+    /* Responsive stacking on mobile/tablet */
+    @media (max-width: 768px) {
+      #centered-accordion-section .three-column {
+        flex-direction: column;
+        align-items: center;
+      }
+      #centered-accordion-section .left-side,
+      #centered-accordion-section .center-image,
+      #centered-accordion-section .right-side {
+        width: 100% !important;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var openContent = null;
+      var toggles = document.querySelectorAll('#centered-accordion-section .accordion-toggle');
+
+      toggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var content = this.nextElementSibling;
+          // Close previously opened content if it's not this one
+          if (openContent && openContent !== content) {
+            openContent.style.display = 'none';
+            var prevToggleIcon = openContent.previousElementSibling.querySelector('.toggle-icon');
+            if (prevToggleIcon) { prevToggleIcon.textContent = '+'; }
+          }
+          // Toggle current content
+          if (content.style.display === 'block') {
+            content.style.display = 'none';
+            this.querySelector('.toggle-icon').textContent = '+';
+            openContent = null;
+          } else {
+            content.style.display = 'block';
+            this.querySelector('.toggle-icon').textContent = '–';
+            openContent = content;
+          }
+        });
+      });
+    });
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Centered Accordion 4",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Image",
+      "info": "Upload the center image (e.g. a product stick)."
+    },
+    {
+      "type": "url",
+      "id": "center_video",
+      "label": "Center Video URL",
+      "info": "Enter the URL for a center video (MP4 format)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_block",
+      "name": "Accordion Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Hydration"
+        },
+        {
+          "type": "text",
+          "id": "dropdown_1_label",
+          "label": "Dropdown 1 Label",
+          "default": "Sodium (100mg)"
+        },
+        {
+          "type": "textarea",
+          "id": "dropdown_1_content",
+          "label": "Dropdown 1 Content",
+          "default": "Your content here..."
+        },
+        {
+          "type": "text",
+          "id": "dropdown_2_label",
+          "label": "Dropdown 2 Label",
+          "default": "Potassium (200mg)"
+        },
+        {
+          "type": "textarea",
+          "id": "dropdown_2_content",
+          "label": "Dropdown 2 Content",
+          "default": "Your content here..."
+        },
+        {
+          "type": "text",
+          "id": "dropdown_3_label",
+          "label": "Dropdown 3 Label"
+        },
+        {
+          "type": "textarea",
+          "id": "dropdown_3_content",
+          "label": "Dropdown 3 Content"
+        },
+        {
+          "type": "text",
+          "id": "dropdown_4_label",
+          "label": "Dropdown 4 Label"
+        },
+        {
+          "type": "textarea",
+          "id": "dropdown_4_content",
+          "label": "Dropdown 4 Content"
+        },
+        {
+          "type": "text",
+          "id": "dropdown_5_label",
+          "label": "Dropdown 5 Label"
+        },
+        {
+          "type": "textarea",
+          "id": "dropdown_5_content",
+          "label": "Dropdown 5 Content"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Centered Accordion 4",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

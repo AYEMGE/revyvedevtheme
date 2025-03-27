@@ -1,0 +1,152 @@
+{{ 'testimonial-videos.css' | asset_url | stylesheet_tag }}
+
+<div class="testimonial-section" style="
+  {% if section.settings.background_image %}
+    background-image: url('{{ section.settings.background_image | img_url: '1920x' }}');
+  {% else %}
+    background-color: {{ section.settings.background_color }};
+  {% endif %}
+">
+  <!-- Subtitle -->
+  <p class="testimonial-subtitle">@drinkrevyve</p>
+
+  <!-- Main Header -->
+  <h2 class="testimonial-header">The Internet’s Happiest Drinkers? We’ve Got the Receipts.</h2>
+
+  <!-- Testimonial Video Carousel -->
+  <div class="testimonial-carousel">
+    <div class="testimonial-videos-wrapper">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-video-item">
+          <div class="testimonial-video-container">
+            <video 
+              controls 
+              poster="{{ block.settings.thumbnail | img_url: '600x' }}" 
+              preload="metadata">
+              <source src="{{ block.settings.video_url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="video-caption">"{{ block.settings.caption }}"</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <!-- Carousel Navigation -->
+  <div class="testimonial-carousel-nav" id="testimonial-nav">
+    <button class="carousel-prev">←</button>
+    <div class="carousel-dots"></div>
+    <button class="carousel-next">→</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const wrapper = document.querySelector(".testimonial-videos-wrapper");
+  const prevBtn = document.querySelector(".carousel-prev");
+  const nextBtn = document.querySelector(".carousel-next");
+  const dotsContainer = document.querySelector(".carousel-dots");
+  const navContainer = document.getElementById("testimonial-nav");
+  const videoItems = document.querySelectorAll(".testimonial-video-item");
+
+  let currentPage = 0;
+  let itemsPerPage = window.innerWidth < 768 ? 1 : 4; // Show 1 video per view on mobile
+  let totalPages = Math.ceil(videoItems.length / itemsPerPage);
+
+  // Hide navigation arrows if there are 4 or fewer videos
+  if (videoItems.length <= 4) {
+    navContainer.style.display = "none";
+  }
+
+  function updateCarousel() {
+    let scrollAmount = currentPage * wrapper.clientWidth;
+    wrapper.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    updateDots();
+  }
+
+  function updateDots() {
+    dotsContainer.innerHTML = "";
+    for (let i = 0; i < totalPages; i++) {
+      let dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === currentPage) dot.classList.add("active");
+      dot.addEventListener("click", function () {
+        currentPage = i;
+        updateCarousel();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  nextBtn.addEventListener("click", function () {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      updateCarousel();
+    }
+  });
+
+  prevBtn.addEventListener("click", function () {
+    if (currentPage > 0) {
+      currentPage--;
+      updateCarousel();
+    }
+  });
+
+  updateDots();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Videos",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Testimonial Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail Image"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Videos",
+      "category": "Media",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

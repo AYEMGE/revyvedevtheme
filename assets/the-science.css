@@ -1,0 +1,186 @@
+/* The Science Section Styles */
+
+.science-section {
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .science-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .science-section .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .science-section .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #777;
+    font-weight: 500; /* Medium weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .science-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  @media (min-width: 768px) {
+    .science-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .science-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
+  .science-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .science-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .science-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  .science-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .science-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 400; /* Regular weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  /* --------------------------------------------------------------------------
+     THE SCIENCE SECTION STYLES
+     -------------------------------------------------------------------------- */
+  
+  /* Container resets and typography */
+  .science-section {
+    padding: 60px 20px;
+    background-color: #f9fafb; /* Light neutral background */
+    color: #333;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  /* Heading area */
+  .science-heading {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .science-heading .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .science-heading .section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 500; /* Medium weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  /* Content grid */
+  .science-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* On larger screens, show blocks in columns */
+  @media (min-width: 768px) {
+    .science-content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Each item (card) */
+  .science-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .science-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* Image wrapper */
+  .science-image {
+    margin-bottom: 20px;
+  }
+  
+  .science-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  /* Text styling */
+  .science-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .science-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 400; /* Regular weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  

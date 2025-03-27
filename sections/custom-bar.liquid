@@ -1,0 +1,223 @@
+{% comment %}
+  ===========================================================================
+  CUSTOM BAR SECTION:
+  - Desktop: full-width black bar, icons on a single horizontal line.
+  - Mobile: white background, black rounded "card" with icons in 2 columns.
+  - Up to 6 icons (60px), each with a label.
+  - Hover animation: icons scale slightly.
+  ===========================================================================
+{% endcomment %}
+
+<!-- Satoshi Font Import -->
+<style>
+  @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+</style>
+
+<section
+  id="custom-bar"
+  style="
+    background-color: {{ section.settings.background_color }};
+    margin: 0;
+    padding: 60px 0;
+  "
+>
+  <!-- Content container (centered up to 1200px) -->
+  <div
+    class="custom-bar-inner"
+    style="
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    "
+  >
+    <!-- On desktop, this merges with the black background for a full-width bar.
+         On mobile, this becomes a rounded black "card" with white behind it. -->
+    <div
+      class="custom-bar-content"
+      style="
+        background-color: transparent;
+        border-radius: 20px;
+        text-align: center;
+        padding: 40px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      "
+    >
+      {% if section.settings.heading != blank %}
+        <h2 style="
+          font-size: 48px;
+          font-family: 'Satoshi', sans-serif;
+          font-weight: 900;
+          color: #ffffff;
+          line-height: 1.2;
+          margin: 0 0 40px;
+          letter-spacing: -0.02em;
+        ">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      
+      <!-- ICONS -->
+      <div class="custom-bar-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'icon_text' %}
+            <div class="icon-container">
+              {% if block.settings.icon_image %}
+                <div style="margin: 0 auto 10px;">
+                  <img
+                    src="{{ block.settings.icon_image | img_url: '60x' }}"
+                    alt="{{ block.settings.icon_label | escape }}"
+                    style="
+                      display: block;
+                      margin: 0 auto;
+                      max-width: 60px;
+                      height: auto;
+                    "
+                  />
+                </div>
+              {% endif %}
+              {% if block.settings.icon_label %}
+                <p style="
+                  margin: 0; 
+                  font-size: 18px; 
+                  color: #ffffff;
+                  font-family: 'Satoshi', sans-serif;
+                  font-weight: 500;
+                ">
+                  {{ block.settings.icon_label }}
+                </p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Icons hover effect */
+    #custom-bar .icon-container {
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      font-family: 'Satoshi', sans-serif;
+    }
+    #custom-bar .icon-container:hover {
+      transform: scale(1.1);
+    }
+
+    /* Add transition for background color changes */
+    #custom-bar, #custom-bar .custom-bar-content {
+      transition: background-color 0.3s ease-in-out;
+      font-family: 'Satoshi', sans-serif;
+    }
+
+    /* DESKTOP: Full-width bar, single horizontal row of icons */
+    @media (min-width: 601px) {
+      #custom-bar .custom-bar-grid {
+        display: flex;
+        flex-wrap: nowrap; /* Force icons onto a single line */
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 40px;
+      }
+    }
+
+    /* MOBILE: White background, black card with 2-column icons */
+    @media (max-width: 600px) {
+      /* Make the entire section background white on mobile */
+      #custom-bar {
+        background-color: #fff !important;
+        padding: 40px 0 !important;
+      }
+      /* The "card" inside becomes the dynamically set color */
+      #custom-bar .custom-bar-content {
+        transition: background-color 0.3s ease-in-out;
+      }
+      /* 2 columns for icons */
+      #custom-bar .custom-bar-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clean Tested Ingredients"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_text",
+      "name": "Icon + Label",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "icon_label",
+          "label": "Icon label",
+          "default": "Non GMO"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Custom Bar",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "Non GMO" }
+        },
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "Organic" }
+        },
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "Made in USA" }
+        },
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "Optimal Recovery" }
+        },
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "Zero Sugar" }
+        },
+        {
+          "type": "icon_text",
+          "settings": { "icon_label": "L-Citrulline L-Arginine" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

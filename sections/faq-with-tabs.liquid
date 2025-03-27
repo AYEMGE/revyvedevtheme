@@ -1,0 +1,299 @@
+<!-- BEGIN FAQ With Tabs (Black & White) Section -->
+<style>
+  /* Container */
+  .faq-tabs-section {
+    width: 100%;
+    background-color: #ffffff; /* White background */
+    color: #000000;           /* Black text */
+    padding: 60px 20px;
+    box-sizing: border-box;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .faq-tabs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+  }
+
+  /* Left Column: Heading, Subheading, Tabs */
+  .faq-tabs-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .faq-tabs-heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .faq-tabs-subheading {
+    font-size: 16px;
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 24px;
+    color: #333; /* Slightly lighter black/gray */
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  /* Tabs */
+  .faq-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .faq-tab {
+    font-size: 16px;
+    font-weight: 700; /* Bold weight */
+    cursor: pointer;
+    border: 1px solid #000; /* Black border */
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 14px; /* Changed to 14px */
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .faq-tab:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .faq-tab.active {
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Right Column: FAQ Items */
+  .faq-tabs-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Individual FAQ Item (Accordion) */
+  .faq-item {
+    border: 1px solid #000;
+    border-radius: 14px; /* Changed to 14px */
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    background: #f9f9f9; /* Light gray for contrast */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700; /* Bold weight */
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .faq-icon {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    background: #fff;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400; /* Regular weight */
+    font-family: 'Satoshi', sans-serif;
+  }
+  .faq-answer p {
+    margin: 0;
+    padding: 15px 0;
+    line-height: 1.6;
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  /* Responsive (stack columns on smaller screens) */
+  @media (max-width: 768px) {
+    .faq-tabs-container {
+      flex-direction: column;
+    }
+    .faq-tabs-heading {
+      font-size: 28px;
+    }
+    .faq-tabs-subheading {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<div class="faq-tabs-section" id="faq-tabs-{{ section.id }}">
+  <div class="faq-tabs-container">
+    
+    <!-- LEFT COLUMN: Heading, Subheading, Tabs -->
+    <div class="faq-tabs-left">
+      <!-- Heading -->
+      {% if section.settings.heading != blank %}
+        <h2 class="faq-tabs-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      <!-- Subheading -->
+      {% if section.settings.subheading != blank %}
+        <p class="faq-tabs-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      <!-- Tabs (Product, Shipping, Other) -->
+      <div class="faq-tabs">
+        <div class="faq-tab" data-tab="Product">Product</div>
+        <div class="faq-tab" data-tab="Shipping">Shipping</div>
+        <div class="faq-tab" data-tab="Other">Other</div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: FAQ Items (filtered by category) -->
+    <div class="faq-tabs-right">
+      {% for block in section.blocks %}
+        <!-- Each FAQ item has a data-category that must match the tab -->
+        <div class="faq-item" data-category="{{ block.settings.category }}">
+          <button class="faq-question">
+            {{ block.settings.question }}
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<!-- Tabs + Accordion Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionId = "faq-tabs-{{ section.id }}";
+  const sectionEl = document.getElementById(sectionId);
+
+  // Tabs
+  const tabs = sectionEl.querySelectorAll('.faq-tab');
+  // FAQ items
+  const faqItems = sectionEl.querySelectorAll('.faq-item');
+
+  // 1) Tab click behavior
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove 'active' class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      // Add 'active' to the clicked tab
+      tab.classList.add('active');
+
+      // Get the tab's category
+      const selectedCategory = tab.getAttribute('data-tab');
+
+      // Show only FAQ items that match the category
+      faqItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (itemCategory === selectedCategory) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 2) Accordion behavior for each FAQ item
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    answer.style.maxHeight = 0;
+
+    questionBtn.addEventListener('click', () => {
+      // If item is hidden (display:none), ignore the toggle
+      if (item.style.display === 'none') return;
+
+      item.classList.toggle('open');
+      if (item.classList.contains('open')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      } else {
+        answer.style.maxHeight = 0;
+      }
+    });
+  });
+
+  // 3) Initialize: Activate first tab by default
+  if (tabs.length) {
+    tabs[0].click(); // Simulate click on the first tab (Product)
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Tabs (B&W)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Select a category to see answers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "options": [
+            { "value": "Product", "label": "Product" },
+            { "value": "Shipping", "label": "Shipping" },
+            { "value": "Other", "label": "Other" }
+          ],
+          "default": "Product"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is this product?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>This is our amazing product...</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs (B&W)",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}
+<!-- END FAQ With Tabs (Black & White) Section -->

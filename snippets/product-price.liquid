@@ -1,0 +1,46 @@
+{%- liquid
+  assign variant_object = product.selected_or_first_available_variant
+  if use_variant
+    assign variant_object = product.selected_or_first_available_variant
+  endif
+  assign compare_at_price = variant_object.compare_at_price
+  assign price = variant_object.price
+  assign available = variant_object.available
+-%}
+
+<div class="price {% if show_badges %}price--with-badges{% endif %}">
+  <div class="price__container">
+    <div class="price__regular">
+      <span class="price-item price-item--regular">
+        {{ price | money }}
+      </span>
+    </div>
+    {%- if compare_at_price > price -%}
+      <div class="price__sale">
+        <span class="price-item price-item--sale">
+          {{ price | money }}
+        </span>
+        <span class="price-item price-item--compare">
+          {{ compare_at_price | money }}
+        </span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if show_badges -%}
+    <div class="badges">
+      {%- if compare_at_price > price -%}
+        <span class="badge badge--sale">{{ 'products.product.on_sale' | t }}</span>
+      {%- endif -%}
+      {%- if show_custom_badges and product.metafields.custom.badge != blank -%}
+        <span class="badge badge--custom">{{ product.metafields.custom.badge }}</span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if variant_object.unit_price -%}
+    <div class="unit-price">
+      {{ variant_object.unit_price | money }}/{{ variant_object.unit_price_measurement.reference_unit }}
+    </div>
+  {%- endif -%}
+</div> 

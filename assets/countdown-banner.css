@@ -1,0 +1,149 @@
+/* General Section Layout */
+.countdown-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 50vh; /* Ensure proper height */
+    padding: 60px 40px; /* Add padding to prevent clipping */
+    background: var(--color-bg);
+    color: var(--color-text);
+    overflow: hidden;
+}
+
+/* Left Side - Text + Countdown + Button */
+.countdown-banner--left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Headings */
+.countdown-banner--content h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.countdown-banner--content p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Default: Vertical Layout */
+.countdown-banner--timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Horizontal Layout - Override */
+.countdown-banner--timer.horizontal-layout {
+    flex-direction: row !important;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: nowrap; /* Prevents stacking */
+}
+
+/* Countdown Blocks */
+.countdown-timer--column {
+    display: flex;
+    flex-direction: column; /* Keep days/hours/minutes/seconds stacked */
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px;
+}
+
+/* Ensure Number and Label Stack Correctly */
+.countdown-timer--number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.countdown-timer--text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+}
+
+
+/* CTA Button */
+.countdown-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.countdown-button:hover {
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    transform: scale(1.05);
+}
+
+/* Right Side - Image */
+.countdown-banner--right {
+    flex: 1;
+    height: 50vh; /* Ensures image height stays correct */
+}
+
+.countdown-banner--right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .countdown-banner {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+
+    .countdown-banner--left {
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .countdown-banner--right {
+        height: 40vh;
+    }
+
+    .countdown-banner--timer {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .countdown-timer--column {
+        min-width: 80px;
+        padding: 10px;
+    }
+
+    .countdown-timer--number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-timer--text {
+        font-size: 0.7rem;
+    }
+}
